@@ -29,6 +29,12 @@ body {
 
 }
 
+.report__container {
+  display: grid;
+  grid-template-columns: 109px 109px 109px;
+  grid-template-rows: 60px 60px 60px;
+}
+
 /*Util Class */
 .wrapper {
   display: flex;
