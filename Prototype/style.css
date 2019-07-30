@@ -5,7 +5,7 @@
 }
 
 html {
-  font: 20px/1.168;
+  font: 20px/1.168
 }
 
 a {
@@ -22,6 +22,17 @@ body {
 }
 .header__text {
   padding-top: 80px;
+}
+
+.footer {
+  background-color: red;
+
+}
+
+.report__container {
+  display: grid;
+  grid-template-columns: 109px 109px 109px;
+  grid-template-rows: 60px 60px 60px;
 }
 
 /*Util Class */
@@ -42,3 +53,5 @@ body {
   height: 45px;
   width: 100px;
 }
+
+
