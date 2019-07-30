@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font: 20px/1.168 sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #ededed;
+}
+
+.header {
+  display: flex;
+  color: rgb(238, 29, 29);
+}
+.header__text {
+  padding-top: 80px;
+}
+
+/*Util Class */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 80vh;
+}
+
+.container button {
+  height: 45px;
+  width: 100px;
+}
