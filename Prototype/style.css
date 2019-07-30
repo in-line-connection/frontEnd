@@ -29,7 +29,7 @@ body {
 
 }
 
-.report__container {
+.buttons__container {
   display: grid;
   grid-template-columns: 109px 109px 109px;
   grid-template-rows: 60px 60px 60px;
@@ -54,4 +54,14 @@ body {
   width: 100px;
 }
 
+.vitals__section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  
+}
+.header__trauma {
+  text-align: center;
 
+}
