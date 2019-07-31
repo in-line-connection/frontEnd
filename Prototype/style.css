@@ -16,6 +16,10 @@ body {
   background-color: #ededed;
 }
 
+li {
+  list-style-type: none;
+}
+
 .header {
   display: flex;
   color: rgb(238, 29, 29);
@@ -33,6 +37,21 @@ body {
   display: grid;
   grid-template-columns: 109px 109px 109px;
   grid-template-rows: 60px 60px 60px;
+}
+
+.receiving {
+  margin: 0 20rem;
+}
+
+.receiving__report-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.receiving__report-list-item {
+    flex: 0 1 calc(50% - 1rem);
+    margin-bottom: 1.5rem;
 }
 
 /*Util Class */
