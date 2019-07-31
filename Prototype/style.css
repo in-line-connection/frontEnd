@@ -43,7 +43,7 @@ li {
 
 .footer {
   background-color: red;
-
+  margin: 1px;
 }
 
 .buttons__container {
@@ -70,8 +70,8 @@ li {
 
 /*Util Class */
 .wrapper {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .container {
