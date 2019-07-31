@@ -11,7 +11,9 @@ html {
 a {
   text-decoration: none;
 }
-
+hr {
+  margin-bottom: 1rem;
+}
 body {
   background-color: #ededed;
 }
@@ -64,6 +66,7 @@ li {
     flex: 0 1 calc(50% - 1rem);
     margin-bottom: 1.5rem;
 }
+
 
 /*Util Class */
 .wrapper {
