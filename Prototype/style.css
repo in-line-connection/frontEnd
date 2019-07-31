@@ -63,5 +63,18 @@ body {
 }
 .header__trauma {
   text-align: center;
+}
+.header__medical {
+  text-align: center;
+  margin-bottom: 40px;
+
+}
+
+.rhythm__field {
+ font-weight: bolder;
+}
+
+.narrative__textarea {
+  margin-bottom: 40px;
 
 }
