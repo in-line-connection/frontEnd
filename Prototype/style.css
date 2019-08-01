@@ -63,6 +63,14 @@ li {
     /* justify-content: space-around; */
 }
 
+.date__time__container {
+  display:flex;
+  flex-direction: row;
+  margin: 0.5rem;
+  background-color: #dddddd;
+  padding:0.5rem;
+}
+
 .receiving__report-list-item {
     flex: 0 1 calc(50% - 1rem);
     margin-bottom: 1.5rem;
@@ -71,8 +79,8 @@ li {
 
 /*Util Class */
 .wrapper {
-  /* display: flex;
-  flex-direction: column; */
+  display: flex;
+  flex-direction: column; 
 }
 
 .container {
