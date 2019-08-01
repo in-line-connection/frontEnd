@@ -17,6 +17,21 @@ hr {
 body {
   background-color: #ededed;
 }
+input{
+  min-width: 60px ;
+  min-height: 35px ;
+  padding: 7px;
+}
+.Receiving form{
+  font-size: 35px;
+}
+.View_ReportsButton {
+  min-width: 200px;
+  min-height: 50px;
+  font-size: 30px;
+ 
+}
+
 .alert_section {
   background-color: red;
   border: 4px yellow solid;
@@ -44,7 +59,8 @@ li {
 .footer {
   background-color: red;
   margin: 1px;
-  margin-top: 2rem;
+ margin-top: 2rem; 
+  
 }
 
 .buttons__container {
@@ -83,17 +99,29 @@ li {
   flex-direction: column; 
 }
 
+.header__image{
+  width: 80vw;
+}
 .container {
+  padding-top:10px ;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
+  padding-top: 15px;
+  padding-bottom: 100px; 
+  width: 60vw;
 }
 
 .container button {
   height: 45px;
   width: 100px;
 }
+.header__image img{
+  padding: 3px;
+  width: 100vw;
+}
+
 
 .vitals__section {
   display: flex;
