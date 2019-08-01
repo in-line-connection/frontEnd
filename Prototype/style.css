@@ -5,7 +5,7 @@
 }
 
 html {
-  font: 20px/1.168
+  font: 20px/1.168;
 }
 
 a {
@@ -17,25 +17,24 @@ hr {
 body {
   background-color: #ededed;
 }
-input{
-  min-width: 60px ;
-  min-height: 35px ;
+input {
+  min-width: 60px;
+  min-height: 35px;
   padding: 7px;
 }
-.Receiving form{
+.Receiving form {
   font-size: 35px;
 }
 .View_ReportsButton {
   min-width: 200px;
   min-height: 50px;
   font-size: 30px;
- 
 }
 
 .alert_section {
   background-color: red;
   border: 4px yellow solid;
-  border-radius: 15%; 
+  border-radius: 15%;
   width: 80vw;
   height: 10vh;
   display: flex;
@@ -59,8 +58,7 @@ li {
 .footer {
   background-color: red;
   margin: 1px;
- margin-top: 2rem; 
-  
+  margin-top: 2rem;
 }
 
 .buttons__container {
@@ -74,42 +72,41 @@ li {
 }
 
 .receiving__report-list {
-    display: flex;
-    flex-wrap: wrap;
-    /* justify-content: space-around; */
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-around; */
 }
 
 .date__time__container {
-  display:flex;
+  display: flex;
   flex-direction: row;
   margin: 0.5rem;
   background-color: #dddddd;
-  padding:0.5rem;
+  padding: 0.5rem;
 }
 
 .receiving__report-list-item {
-    flex: 0 1 calc(50% - 1rem);
-    margin-bottom: 1.5rem;
+  flex: 0 1 calc(50% - 1rem);
+  margin-bottom: 1.5rem;
 }
-
 
 /*Util Class */
 .wrapper {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
-.header__image{
+.header__image {
   width: 80vw;
 }
 .container {
-  padding-top:10px ;
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   /* justify-content: space-evenly; */
   padding-top: 15px;
-  padding-bottom: 100px; 
+  padding-bottom: 100px;
   width: 60vw;
 }
 
@@ -117,18 +114,16 @@ li {
   height: 45px;
   width: 100px;
 }
-.header__image img{
+.header__image img {
   padding: 3px;
   width: 100vw;
 }
-
 
 .vitals__section {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  
 }
 .header__trauma {
   text-align: center;
@@ -136,38 +131,35 @@ li {
 .header__medical {
   text-align: center;
   margin-bottom: 40px;
-
 }
 
 .rhythm__field {
- font-weight: bolder;
+  font-weight: bolder;
 }
 
 .narrative__textarea {
   margin-bottom: 40px;
-
 }
 .header__cardiac {
- text-align: center;
+  text-align: center;
 }
 .container__box {
   text-align: center;
   padding-top: 1rem;
   margin-bottom: 1rem;
- 
-  }
-  .witness__class {
-    margin-left: 2rem;
-  }
-  .witness__box {
-    margin-left: .5rem;
-    margin-right: .5rem;
-  }
-  .not__class {
-    margin-left: 2rem;
-  }
-  .not__box {
-    margin-left: .5rem;
-    margin-right: .5rem;
-    margin-bottom: 2rem;
-  }
+}
+.witness__class {
+  margin-left: 2rem;
+}
+.witness__box {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.not__class {
+  margin-left: 2rem;
+}
+.not__box {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 2rem;
+}
