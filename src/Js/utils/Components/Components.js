@@ -200,6 +200,8 @@ class Components {
         const newSex = "M";
         const newAge = "21";
 
+        // to do => add classes to input fields and get via query selector
+
         const bpEntryInputFieldValue = bpInputField.value;
         const hrEntryInputFieldValue = hrInputField.value;
         const spo2EntryInputFieldValue = spo2InputField.value;
@@ -239,7 +241,6 @@ class Components {
     traumaButtonContainer.addChild(penetratingTraumaButton);
     traumaButtonContainer.addChild(compartmentSyndromeButton);
 
-    traumaFormContentBlock.addChild(vitalsSectionBlock);
     vitalsSectionBlock.addChild(vitalsSectionTitle);
     vitalsSectionBlock.addChild(hrEntryLabel);
     vitalsSectionBlock.addChild(hrInputField);
@@ -256,6 +257,7 @@ class Components {
     vitalsSectionBlock.addChild(narrativeEntryLabel);
     vitalsSectionBlock.addChild(narrativeInputField);
     vitalsSectionBlock.addChild(traumaSubmitButton);
+    traumaFormContentBlock.addChild(vitalsSectionBlock);
 
     return traumaFormContentBlock;
   }
