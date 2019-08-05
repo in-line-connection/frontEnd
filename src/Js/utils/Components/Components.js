@@ -37,11 +37,14 @@ class Components {
       .create("label")
       .addClass("login__form-label")
       .text("Medic #:");
+    const medicNumInputForm = Html()
+      .create("input")
+      .addAttribute("type", "text");
     const companyNameLabel = Html()
       .create("label")
       .addClass("login__form-label")
       .text("Company Name:");
-    const inputForm = Html()
+    const companyInputForm = Html()
       .create("input")
       .addAttribute("type", "text");
     const submitButton = Html()
@@ -51,9 +54,9 @@ class Components {
     loginContentBlock.addChild(loginPageTitle);
     loginContentBlock.addChild(loginFieldSet);
     loginFieldSet.addChild(MedicNumLabel);
-    loginFieldSet.addChild(inputForm);
+    loginFieldSet.addChild(medicNumInputForm);
     loginFieldSet.addChild(companyNameLabel);
-    loginFieldSet.addChild(inputForm);
+    loginFieldSet.addChild(companyInputForm);
     loginContentBlock.addChild(submitButton);
     return loginContentBlock;
   }
@@ -78,5 +81,25 @@ class Components {
     wrapperDiv.addChild(loginContent);
     wrapperDiv.addChild(mainFooter);
     app.replace(wrapperDiv);
+  }
+
+  renderTraumaFormContent() {
+    const traumaFormContentBlock = Html()
+      .create("div")
+      .addClass("traumaForm");
+    const traumaFormTitle = Html()
+      .create("h2")
+      .addClass("header__trauma")
+      .text("TRAUMA");
+    const traumaFormContainer = Html()
+      .create("div")
+      .addClass("container");
+    const traumaButtonContainer = Html()
+      .create("div")
+      .addClass("buttons__container");
+    const mvcButton = Html()
+      .create("button")
+      .addAttribute("id", "MVC")
+      .addClass("report__buttons");
   }
 }
