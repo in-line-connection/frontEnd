@@ -96,9 +96,9 @@ li {
   flex-direction: column;
 }
 
-.header__image {
+/* .header__image {
   width: 80vw;
-}
+} */
 .container {
   padding-top: 10px;
   display: flex;
