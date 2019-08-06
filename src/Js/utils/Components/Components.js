@@ -200,7 +200,7 @@ class Components {
         const newSex = "M";
         const newAge = "21";
 
-        // to do => add classes to input fields and get via query selector
+        // to do => add ids to input fields and get via query selector
 
         const bpEntryInputFieldValue = bpInputField.value;
         const hrEntryInputFieldValue = hrInputField.value;
@@ -210,7 +210,7 @@ class Components {
         const gluEntryInputFieldValue = gluInputField.value;
         const narrativeEntryInputFieldValue = narrativeInputField.value;
 
-        console.log("hry")
+        console.log("wassup")
 
         Api().postRequest('http://localhost:8080/api/trauma-reports', {
           medicNum: newMedicNum,
