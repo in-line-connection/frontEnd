@@ -141,6 +141,8 @@ class Components {
       .text("B/P");
     const bpInputField = Html()
       .create("input")
+      .addClass("vitals__section-field")
+      .addAttribute("id", "bpField")
       .addAttribute("type", "text")
       .addAttribute("name", "B/P");
 
@@ -149,6 +151,8 @@ class Components {
       .text("H/R:");
     const hrInputField = Html()
       .create("input")
+      .addClass("vitals__section-field")
+      .addAttribute("id", "hrField")
       .addAttribute("type", "text")
       .addAttribute("name", "H/R");
     const spo2EntryLabel = Html()
@@ -156,6 +160,8 @@ class Components {
       .text("SPO2: ");
     const spo2InputField = Html()
       .create("input")
+      .addClass("vitals__section-field")
+      .addAttribute("id", "spO2Field")
       .addAttribute("type", "text")
       .addAttribute("name", "Spo2");
     const rEntryLabel = Html()
@@ -163,6 +169,8 @@ class Components {
       .text("R: ");
     const rInputField = Html()
       .create("input")
+      .addClass("vitals__section-field")
+      .addAttribute("id", "rField")
       .addAttribute("type", "text")
       .addAttribute("name", "R");
     const gcsEntryLabel = Html()
@@ -170,6 +178,8 @@ class Components {
       .text("GCS: ");
     const gcsInputField = Html()
       .create("input")
+      .addClass("vitals__section-field")
+      .addAttribute("id", "gcsField")
       .addAttribute("type", "text")
       .addAttribute("name", "GCS");
     const gluEntryLabel = Html()
@@ -177,6 +187,8 @@ class Components {
       .text("GLU: ");
     const gluInputField = Html()
       .create("input")
+      .addClass("vitals__section-field")
+      .addAttribute("id", "gluField")
       .addAttribute("type", "text")
       .addAttribute("name", "GLU");
     const narrativeEntryLabel = Html()
@@ -184,9 +196,9 @@ class Components {
       .text("Narrative: ");
     const narrativeInputField = Html()
       .create("input")
+      .addClass("vitals__section-field")
+      .addAttribute("id", "narrativeField")
       .addAttribute("type", "text")
-      .addAttribute("width", "100")
-      .addAttribute("height", "300")
       .addAttribute("name", "narrative");
 
     const traumaSubmitButton = Html()
@@ -194,41 +206,7 @@ class Components {
       .addClass("trauma__submit-button")
       .text("Submit")
       .click(event => {
-        const newMedicNum = "1234";
-        const newDate = "May 1";
-        const newComplaint = "MVC";
-        const newSex = "M";
-        const newAge = "21";
-
-        // to do => add ids to input fields and get via query selector
-
-        const bpEntryInputFieldValue = bpInputField.value;
-        const hrEntryInputFieldValue = hrInputField.value;
-        const spo2EntryInputFieldValue = spo2InputField.value;
-        const rEntryInputFieldValue = rInputField.value;
-        const gcsEntryInputFieldValue = gcsInputField.value;
-        const gluEntryInputFieldValue = gluInputField.value;
-        const narrativeEntryInputFieldValue = narrativeInputField.value;
-
-        console.log("wassup")
-
-        Api().postRequest('http://localhost:8080/api/trauma-reports', {
-          medicNum: newMedicNum,
-          chiefComplaint: newComplaint,
-          date: newDate,
-          narrative: narrativeEntryInputFieldValue,
-          sex: newSex,
-          age: newAge,
-          BP: bpEntryInputFieldValue,
-          HR: hrEntryInputFieldValue,
-          SpO2: spo2EntryInputFieldValue,
-          RespRate: rEntryInputFieldValue,
-          gcs: gcsEntryInputFieldValue,
-          bloodSugar: gluEntryInputFieldValue,
-        
-        }, (traumaReport) => {
-          this.renderTraumaFormPage()
-        })
+        this.traumaClick(event);
       });
 
     traumaFormContentBlock.addChild(traumaFormContainer);
@@ -260,5 +238,44 @@ class Components {
     traumaFormContentBlock.addChild(vitalsSectionBlock);
 
     return traumaFormContentBlock;
+  }
+
+  traumaClick(event) {
+    event.preventDefault();
+    const newMedicNum = "1234";
+    const newDate = "May 1";
+    const newComplaint = "MVC";
+    const newSex = "M";
+    const newAge = "21";
+    const bpEntryInputFieldValue = document.querySelector("#bpField").value;
+    const hrEntryInputFieldValue = document.querySelector("#hrField").value;
+    const spo2EntryInputFieldValue = document.querySelector("#spO2Field").value;
+    const rEntryInputFieldValue = document.querySelector("#rField").value;
+    const gcsEntryInputFieldValue = document.querySelector("#gcsField").value;
+    const gluEntryInputFieldValue = document.querySelector("#gluField").value;
+    const narrativeEntryInputFieldValue = document.querySelector(
+      "#narrativeField"
+    ).value;
+    console.log(narrativeEntryInputFieldValue);
+    Api().postRequest(
+      "http://localhost:8080/api/trauma-reports",
+      {
+        medicNum: newMedicNum,
+        chiefComplaint: newComplaint,
+        date: newDate,
+        narrative: narrativeEntryInputFieldValue,
+        sex: newSex,
+        age: newAge,
+        bloodPressure: bpEntryInputFieldValue,
+        heartRate: hrEntryInputFieldValue,
+        spO2: spo2EntryInputFieldValue,
+        respiratoryRate: rEntryInputFieldValue,
+        gcs: gcsEntryInputFieldValue,
+        bloodSugar: gluEntryInputFieldValue
+      },
+      traumaReport => {
+        this.renderTraumaFormPage();
+      }
+    );
   }
 }
