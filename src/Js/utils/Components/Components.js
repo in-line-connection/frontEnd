@@ -50,7 +50,12 @@ class Components {
     const submitButton = Html()
       .create("button")
       .addClass("login__form-button")
-      .text("Login");
+      .text("Login")
+      .click(event => {
+        event.preventDefault();
+        this.renderPageOptions();
+      });
+
     loginContentBlock.addChild(loginPageTitle);
     loginContentBlock.addChild(loginFieldSet);
     loginFieldSet.addChild(MedicNumLabel);
@@ -75,12 +80,81 @@ class Components {
     const app = this.getAppContext();
     const wrapperDiv = this.getWrapperDiv();
     const mainHeader = this.renderHeader();
+    const loginContent = this.renderLoginFields();
+    const mainFooter = this.renderMainFooter();
+    wrapperDiv.addChild(mainHeader);
+    wrapperDiv.addChild(loginContent);
+    wrapperDiv.addChild(mainFooter);
+    app.replace(wrapperDiv);
+  }
+
+  renderTraumaFormPage() {
+    const app = this.getAppContext();
+    const wrapperDiv = this.getWrapperDiv();
+    const mainHeader = this.renderHeader();
     const traumaFormContent = this.renderTraumaFormContent();
     const mainFooter = this.renderMainFooter();
     wrapperDiv.addChild(mainHeader);
     wrapperDiv.addChild(traumaFormContent);
     wrapperDiv.addChild(mainFooter);
     app.replace(wrapperDiv);
+  }
+
+  renderPageOptions() {
+    const app = this.getAppContext();
+    const wrapperDiv = this.getWrapperDiv();
+    const mainHeader = this.renderHeader();
+    const optionsPageContent = this.renderPageOptionsContent();
+    const mainFooter = this.renderMainFooter();
+    wrapperDiv.addChild(mainHeader);
+    wrapperDiv.addChild(optionsPageContent);
+    wrapperDiv.addChild(mainFooter);
+    app.replace(wrapperDiv);
+  }
+
+  renderPageOptionsContent() {
+    const mainOptionsContent = Html().create("main");
+    const optionsContainer = Html()
+      .create("div")
+      .addClass("container");
+    const optionsCardiacButton = Html()
+      .create("button")
+      .addClass("buttons");
+    const optionsCardiacLabel = Html()
+      .create("p")
+      .addAttribute("id", "cardiac__label")
+      .addClass("options__labels")
+      .text("Cardiac");
+    const optionsTraumaButton = Html()
+      .create("button")
+      .addClass("buttons")
+      .click(event => {
+        this.renderTraumaFormPage();
+      });
+
+    const optionsTraumaLabel = Html()
+      .create("p")
+      .addAttribute("id", "trauma__label")
+      .addClass("options__labels")
+      .text("Trauma");
+    const optionsMedicalButton = Html()
+      .create("button")
+      .addClass("buttons");
+    const optionsMedicalLabel = Html()
+      .create("p")
+      .addAttribute("id", "medical__label")
+      .addClass("options__labels")
+      .text("Medical");
+
+    mainOptionsContent.addChild(optionsContainer);
+    optionsContainer.addChild(optionsCardiacButton);
+    optionsCardiacButton.addChild(optionsCardiacLabel);
+    optionsContainer.addChild(optionsTraumaButton);
+    optionsTraumaButton.addChild(optionsTraumaLabel);
+    optionsContainer.addChild(optionsMedicalButton);
+    optionsMedicalButton.addChild(optionsMedicalLabel);
+
+    return mainOptionsContent;
   }
 
   renderTraumaFormContent() {
@@ -274,7 +348,7 @@ class Components {
         bloodSugar: gluEntryInputFieldValue
       },
       traumaReport => {
-        this.renderTraumaFormPage();
+        this.renderPageOptions();
       }
     );
   }
