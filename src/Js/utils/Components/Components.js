@@ -211,12 +211,8 @@ class Components {
     immobilizationContentDiv.addChild(immobilizedInputFalse);
     immobilizationContentDiv.addChild(immobilizedInputFalseText);
 
-
-
     const traumaFormContent = this.renderTraumaFormContent();
     contentBlock.addChild(traumaFormContent);
-
-
     container.replace(contentBlock);
   }
 
@@ -361,39 +357,6 @@ class Components {
     const traumaFormContainer = Html()
       .create("div")
       .addClass("container");
-    const traumaButtonContainer = Html()
-      .create("div")
-      .addClass("buttons__container");
-    const mvcButton = Html()
-      .create("button")
-      .addAttribute("id", "MVC")
-      .addClass("report__buttons")
-      .text("MVC");
-    const gsnButton = Html()
-      .create("button")
-      .addAttribute("id", "gsn")
-      .addClass("report__buttons")
-      .text("GSN");
-    const fallButton = Html()
-      .create("button")
-      .addAttribute("id", "fall")
-      .addClass("report__buttons")
-      .text("Fall");
-    const bluntForceButton = Html()
-      .create("button")
-      .addAttribute("id", "bluntForce")
-      .addClass("report__buttons")
-      .text("Blunt-Force Trauma");
-    const penetratingTraumaButton = Html()
-      .create("button")
-      .addAttribute("id", "penetratingTrauma")
-      .addClass("report__buttons")
-      .text("Penetrating Trauma");
-    const compartmentSyndromeButton = Html()
-      .create("button")
-      .addAttribute("id", "compartmentSyndrome")
-      .addClass("report__buttons")
-      .text("Compartment Syndrome");
 
     const vitalsSectionBlock = Html()
       .create("section")
@@ -478,13 +441,6 @@ class Components {
 
     traumaFormContentBlock.addChild(traumaFormContainer);
     traumaFormContentBlock.addChild(traumaFormTitle);
-    traumaFormContainer.addChild(traumaButtonContainer);
-    traumaButtonContainer.addChild(mvcButton);
-    traumaButtonContainer.addChild(gsnButton);
-    traumaButtonContainer.addChild(fallButton);
-    traumaButtonContainer.addChild(bluntForceButton);
-    traumaButtonContainer.addChild(penetratingTraumaButton);
-    traumaButtonContainer.addChild(compartmentSyndromeButton);
 
     vitalsSectionBlock.addChild(vitalsSectionTitle);
     vitalsSectionBlock.addChild(hrEntryLabel);
