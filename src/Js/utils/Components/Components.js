@@ -1,13 +1,11 @@
 import Html from "../Html/Html";
 import Api from "../Api/Api";
 
-
 export default () => new Components();
 class Components {
   getAppContext() {
     return Html().select("#app");
   }
-
 
   getWrapperDiv() {
     return Html()
@@ -74,10 +72,214 @@ class Components {
     const footerContent = Html()
       .create("small")
       .addClass("footer__copy")
-      .text("&copy 2019 In-Line Connect");
+      .html("&copy 2019 In-Line Connect");
     footer.addChild(footerContent);
     return footer;
   }
+
+  renderMVCQuestions() {
+    const container = Html().select(".container");
+    const contentBlock = Html()
+      .create("section")
+      .addClass("MVC__block");
+    const seatPositionLabel = Html()
+      .create("label")
+      .text("Seat Position: ");
+    const seatPositionInput = Html()
+      .create("input")
+      .addClass("MVC__block-item")
+      .addAttribute("id", "seatPosition")
+      .addAttribute("type", "text")
+      .addAttribute("name", "seat-position");
+
+    const speedLabel = Html()
+      .create("label")
+      .text("Speed: ");
+    const speedInput = Html()
+      .create("input")
+      .addClass("MVC__block-item")
+      .addAttribute("id", "speed")
+      .addAttribute("type", "text")
+      .addAttribute("name", "speed");
+
+    const ambulatoryContentDiv = Html().create("div");
+    const extricationContentDiv = Html().create("div");
+    const immobilizationContentDiv = Html().create("div");
+
+    const ambulatoryLabel = Html()
+      .create("label")
+      .text("Ambulatory: ");
+
+    const ambulatoryInputTrue = Html()
+      .create("input")
+      .addClass("MVC__block-item")
+      .addAttribute("id", "ambulatoryTrue")
+      .addAttribute("value", "True")
+      .addAttribute("type", "radio")
+      .addAttribute("name", "ambulatory");
+
+    const ambulatoryInputFalse = Html()
+      .create("input")
+      .addClass("MVC__block-item")
+      .addAttribute("id", "ambulatoryFalse")
+      .addAttribute("value", "False")
+      .addAttribute("type", "radio")
+      .addAttribute("name", "ambulatory");
+
+    const immobilizedInputTrueText = Html()
+      .create("label")
+      .text("True");
+    const immobilizedInputFalseText = Html()
+      .create("label")
+      .text("False");
+    const ambulatoryInputTrueText = Html()
+      .create("label")
+      .text("True");
+    const ambulatoryInputFalseText = Html()
+      .create("label")
+      .text("False");
+    const extricationInputFalseText = Html()
+      .create("label")
+      .text("False");
+    const extricationInputTrueText = Html()
+      .create("label")
+      .text("True");
+
+    const prolongedExtricationLabel = Html()
+      .create("label")
+      .text("Prolonged Extrication: ");
+
+    const prolongedExtricationInputTrue = Html()
+      .create("input")
+      .addClass("MVC__block-item")
+      .addAttribute("id", "prolonged-extrication-true")
+      .addAttribute("type", "radio")
+      .addAttribute("name", "prolonged extrication");
+
+    const prolongedExtricationInputFalse = Html()
+      .create("input")
+      .addClass("MVC__block-item")
+      .addAttribute("id", "prolonged-extrication-false")
+      .addAttribute("type", "radio")
+      .addAttribute("name", "prolonged extrication");
+
+    const immobilizedLabel = Html()
+      .create("label")
+      .text("Immobilized: ");
+
+    const immobilizedInputTrue = Html()
+      .create("input")
+      .addClass("MVC__block-item")
+      .addAttribute("id", "immobilized-true")
+      .addAttribute("type", "radio")
+      .addAttribute("name", "immobilized")
+      .text("True");
+
+    const immobilizedInputFalse = Html()
+      .create("input")
+      .addClass("MVC__block-item")
+      .addAttribute("id", "immobilized-false")
+      .addAttribute("type", "radio")
+      .addAttribute("name", "immobilized")
+      .text("False");
+
+
+
+    contentBlock.addChild(seatPositionLabel);
+    contentBlock.addChild(seatPositionInput);
+    contentBlock.addChild(speedLabel);
+    contentBlock.addChild(speedInput);
+
+    contentBlock.addChild(ambulatoryContentDiv);
+    ambulatoryContentDiv.addChild(ambulatoryLabel);
+    ambulatoryContentDiv.addChild(ambulatoryInputTrue);
+    ambulatoryContentDiv.addChild(ambulatoryInputTrueText);
+    ambulatoryContentDiv.addChild(ambulatoryInputFalse);
+    ambulatoryContentDiv.addChild(ambulatoryInputFalseText);
+
+    contentBlock.addChild(extricationContentDiv);
+    extricationContentDiv.addChild(prolongedExtricationLabel);
+    extricationContentDiv.addChild(prolongedExtricationInputTrue);
+    extricationContentDiv.addChild(extricationInputTrueText);
+    extricationContentDiv.addChild(prolongedExtricationInputFalse);
+    extricationContentDiv.addChild(extricationInputFalseText);
+
+    contentBlock.addChild(immobilizationContentDiv);
+    immobilizationContentDiv.addChild(immobilizedLabel);
+    immobilizationContentDiv.addChild(immobilizedInputTrue);
+    immobilizationContentDiv.addChild(immobilizedInputTrueText);
+    immobilizationContentDiv.addChild(immobilizedInputFalse);
+    immobilizationContentDiv.addChild(immobilizedInputFalseText);
+
+
+
+    const traumaFormContent = this.renderTraumaFormContent();
+    contentBlock.addChild(traumaFormContent);
+
+
+    container.replace(contentBlock);
+  }
+
+  renderPageChiefComplaint() {
+    const container = Html().select(".container");
+    const chiefComplaintBlock = Html()
+      .create("div")
+      .addClass("chiefComplaintBlock");
+    const chiefComplaintTitle = Html()
+      .create("h2")
+      .addClass("chiefComplaintBlock__title")
+      .text("Chief Complaint");
+    const cheifComplaintButtons = Html()
+      .create("div")
+      .addClass("chiefComplaintBlock__list");
+    const mvcButton = Html()
+      .create("button")
+      .addAttribute("id", "MVC")
+      .addClass("chiefComplaintBlock__list-button")
+      .text("MVC")
+      .click(event => {
+        event.preventDefault();
+        this.renderMVCQuestions();
+      });
+    const gsnButton = Html()
+      .create("button")
+      .addAttribute("id", "gsn")
+      .addClass("chiefComplaintBlock__list-button")
+      .text("GSN");
+    const fallButton = Html()
+      .create("button")
+      .addAttribute("id", "fall")
+      .addClass("chiefComplaintBlock__list-button")
+      .text("Fall");
+    const bluntForceButton = Html()
+      .create("button")
+      .addAttribute("id", "bluntForce")
+      .addClass("chiefComplaintBlock__list-button")
+      .text("Blunt-Force Trauma");
+    const penetratingTraumaButton = Html()
+      .create("button")
+      .addAttribute("id", "penetratingTrauma")
+      .addClass("chiefComplaintBlock__list-button")
+      .text("Penetrating Trauma");
+    const compartmentSyndromeButton = Html()
+      .create("button")
+      .addAttribute("id", "compartmentSyndrome")
+      .addClass("chiefComplaintBlock__list-button")
+      .text("Compartment Syndrome");
+
+    cheifComplaintButtons.addChild(mvcButton);
+    cheifComplaintButtons.addChild(gsnButton);
+    cheifComplaintButtons.addChild(fallButton);
+    cheifComplaintButtons.addChild(bluntForceButton);
+    cheifComplaintButtons.addChild(penetratingTraumaButton);
+    cheifComplaintButtons.addChild(compartmentSyndromeButton);
+
+    chiefComplaintBlock.addChild(chiefComplaintTitle);
+    chiefComplaintBlock.addChild(cheifComplaintButtons);
+    container.replace(chiefComplaintBlock);
+    return container;
+  }
+
   renderPageHome() {
     const app = this.getAppContext();
     const wrapperDiv = this.getWrapperDiv();
@@ -86,18 +288,6 @@ class Components {
     const mainFooter = this.renderMainFooter();
     wrapperDiv.addChild(mainHeader);
     wrapperDiv.addChild(loginContent);
-    wrapperDiv.addChild(mainFooter);
-    app.replace(wrapperDiv);
-  }
-
-  renderTraumaFormPage() {
-    const app = this.getAppContext();
-    const wrapperDiv = this.getWrapperDiv();
-    const mainHeader = this.renderHeader();
-    const traumaFormContent = this.renderTraumaFormContent();
-    const mainFooter = this.renderMainFooter();
-    wrapperDiv.addChild(mainHeader);
-    wrapperDiv.addChild(traumaFormContent);
     wrapperDiv.addChild(mainFooter);
     app.replace(wrapperDiv);
   }
@@ -130,9 +320,10 @@ class Components {
     const optionsTraumaButton = Html()
       .create("button")
       .addClass("buttons")
-      .click(event => {
-        this.renderTraumaFormPage();
-      });
+      .click((event) => {
+        event.preventDefault();
+        this.renderPageChiefComplaint();
+      })
 
     const optionsTraumaLabel = Html()
       .create("p")
@@ -272,12 +463,11 @@ class Components {
       .text("Narrative: ");
     const narrativeInputField = Html()
       .create("input")
-      .addClass("vitals__section-fieldNar")
+      .addClass("vitals__section-field")
       .addAttribute("id", "narrativeField")
       .addAttribute("type", "text")
-      .addAttribute("name", "narrative")
-      .addAttribute("value", "");
-    const speechButton = Html().create("button").text("Push to Speak")
+      .addAttribute("name", "narrative");
+
     const traumaSubmitButton = Html()
       .create("button")
       .addClass("trauma__submit-button")
@@ -309,7 +499,6 @@ class Components {
     vitalsSectionBlock.addChild(gcsInputField);
     vitalsSectionBlock.addChild(gluEntryLabel);
     vitalsSectionBlock.addChild(gluInputField);
-    vitalsSectionBlock.addChild(speechButton);
     vitalsSectionBlock.addChild(narrativeEntryLabel);
     vitalsSectionBlock.addChild(narrativeInputField);
     vitalsSectionBlock.addChild(traumaSubmitButton);
