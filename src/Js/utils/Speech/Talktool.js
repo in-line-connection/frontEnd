@@ -1,16 +1,15 @@
-var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
-var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+
+
+const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+const SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+const SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
 
 
 
-let diagnosticPara = document.querySelector('.output');
-let testBtn = document.querySelector('button');
-let inputSection = document.querySelector('.narrativeField')
+
 
 function testSpeech() {
-    testBtn.disabled = true;
-    testBtn.textContent = 'Test in progress';
+
 
     let grammar = '#JSGF V1.0; grammar phrase; public <phrase> = ' + ';';
     let recognition = new SpeechRecognition();
@@ -25,7 +24,7 @@ function testSpeech() {
 
     recognition.onresult = function (event) {
         let speechResult = event.results[0][0].transcript.toLowerCase();
-        // diagnosticPara.textContent = 'Speech received: ' + speechResult + '.';
+
         document.querySelector('.vitals__section-fieldNar').value = speechResult;
         if (speechResult === 0) {
         } else {
@@ -35,14 +34,11 @@ function testSpeech() {
 
     recognition.onspeechend = function () {
         recognition.stop();
-        testBtn.disabled = false;
-        testBtn.textContent = 'Start new test';
+
     }
 
     recognition.onerror = function (event) {
-        testBtn.disabled = false;
-        testBtn.textContent = 'Start new test';
-        diagnosticPara.textContent = 'Error occurred in recognition: ' + event.error;
+
     }
 
     recognition.onaudiostart = function (event) {
@@ -85,4 +81,5 @@ function testSpeech() {
     }
 }
 
-testBtn.addEventListener('click', testSpeech);
+
+export default testSpeech
