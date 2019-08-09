@@ -1,5 +1,6 @@
 import Html from "../Html/Html";
 import Api from "../Api/Api";
+import testSpeech from "../Speech/Talktool";
 
 export default () => new Components();
 class Components {
@@ -434,7 +435,17 @@ class Components {
 
     const speechButton = Html()
       .create('button')
+      .addClass("speechButton")
       .text("push to speak")
+      .click((event) => {
+        event.preventDefault()
+
+        testSpeech()
+
+
+
+      })
+
 
     const traumaSubmitButton = Html()
       .create("button")
