@@ -114,9 +114,11 @@ class Components {
     const ambulatoryInputCheckBox = Html()
       .create("input")
       .addClass("MVC__block-item")
-      .addAttribute("id", "ambulatoryCheck")
+      .addAttribute("id", "ambulatory-box")
       .addAttribute("type", "checkbox")
       .addAttribute("name", "ambulatory");
+
+      console.log(ambulatoryInputCheckBox.value);
 
     // const ambulatoryInputFalse = Html()
     //   .create("input")
@@ -150,7 +152,7 @@ class Components {
     const prolongedExtricationInputTrue = Html()
       .create("input")
       .addClass("MVC__block-item")
-      .addAttribute("id", "prolonged-extrication-true")
+      .addAttribute("id", "prolonged-extrication-box")
       .addAttribute("type", "checkbox")
       .addAttribute("name", "prolonged extrication");
 
@@ -168,7 +170,7 @@ class Components {
     const immobilizedInputCheckBox = Html()
       .create("input")
       .addClass("MVC__block-item")
-      .addAttribute("id", "immobilized-true")
+      .addAttribute("id", "immobilized-box")
       .addAttribute("type", "checkbox")
       .addAttribute("name", "immobilized")
 
@@ -443,7 +445,7 @@ class Components {
       .addClass("trauma__submit-button")
       .text("Submit")
       .click(event => {
-        this.traumaClick(event);
+        this.mvcClick(event);
       });
 
     traumaFormContentBlock.addChild(traumaFormContainer);
@@ -471,7 +473,7 @@ class Components {
     return traumaFormContentBlock;
   }
 
-  traumaClick(event) {
+  mvcClick(event) {
     event.preventDefault();
     const newMedicNum = "1234";
     const newDate = "May 1";
@@ -487,9 +489,25 @@ class Components {
     const narrativeEntryInputFieldValue = document.querySelector(
       "#narrativeField"
     ).value;
-    console.log(narrativeEntryInputFieldValue);
+    const seatPositionInputFieldValue = document.querySelector("#seatPosition").value;
+    const speedInputFieldValue = document.querySelector("#speed").value;
+
+    let ambulatoryBoxValue = document.querySelector("#ambulatory-box")
+    if(ambulatoryBoxValue.checked) {
+      ambulatoryBoxValue = true 
+    } else ambulatoryBoxValue = false
+    console.log(ambulatoryBoxValue)
+    let prolongedExtricationBoxValue = document.querySelector("#prolonged-extrication-box")
+    if(prolongedExtricationBoxValue.checked) {
+      prolongedExtricationBoxValue = true 
+    } else prolongedExtricationBoxValue = false
+    let immobilizedBoxValue = document.querySelector("#immobilized-box")
+    if(immobilizedBoxValue.checked) {
+      immobilizedBoxValue = true 
+    } else immobilizedBoxValue = false
+   
     Api().postRequest(
-      "http://localhost:8080/api/trauma-reports",
+      "http://localhost:8080/api/motor-vehicle-crash-reports",
       {
         medicNum: newMedicNum,
         chiefComplaint: newComplaint,
@@ -502,9 +520,14 @@ class Components {
         spO2: spo2EntryInputFieldValue,
         respiratoryRate: rEntryInputFieldValue,
         gcs: gcsEntryInputFieldValue,
-        bloodSugar: gluEntryInputFieldValue
+        bloodSugar: gluEntryInputFieldValue,
+        seatPosition: seatPositionInputFieldValue,
+        speed: speedInputFieldValue,
+        ambulatory: ambulatoryBoxValue,
+        prolongedExtrication: prolongedExtricationBoxValue,
+        immobilized: immobilizedBoxValue,
       },
-      traumaReport => {
+      mvcReport => {
         this.renderPageOptions();
       }
     );
