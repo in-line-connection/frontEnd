@@ -111,40 +111,37 @@ class Components {
       .create("label")
       .text("Ambulatory: ");
 
-    const ambulatoryInputTrue = Html()
+    const ambulatoryInputCheckBox = Html()
       .create("input")
       .addClass("MVC__block-item")
-      .addAttribute("id", "ambulatoryTrue")
-      .addAttribute("value", "True")
-      .addAttribute("type", "radio")
+      .addAttribute("id", "ambulatoryCheck")
+      .addAttribute("type", "checkbox")
       .addAttribute("name", "ambulatory");
 
-    const ambulatoryInputFalse = Html()
-      .create("input")
-      .addClass("MVC__block-item")
-      .addAttribute("id", "ambulatoryFalse")
-      .addAttribute("value", "False")
-      .addAttribute("type", "radio")
-      .addAttribute("name", "ambulatory");
+    // const ambulatoryInputFalse = Html()
+    //   .create("input")
+    //   .addClass("MVC__block-item")
+    //   .addAttribute("id", "ambulatoryFalse")
+    //   .addAttribute("value", "False")
+    //   .addAttribute("type", "radio")
+    //   .addAttribute("name", "ambulatory");
 
-    const immobilizedInputTrueText = Html()
+    const immobilizedInputcheckBoxText = Html()
       .create("label")
-      .text("True");
-    const immobilizedInputFalseText = Html()
+      .text("(Check Box if True)");
+    // const immobilizedInputFalseText = Html()
+    //   .create("label")
+    //   .text("False");
+    const ambulatoryInputCheckBoxText = Html()
       .create("label")
-      .text("False");
-    const ambulatoryInputTrueText = Html()
+      .text("(Check box if True)");
+   
+    // const extricationInputFalseText = Html()
+    //   .create("label")
+    //   .text("False");
+    const prolongedExtricationInputText = Html()
       .create("label")
-      .text("True");
-    const ambulatoryInputFalseText = Html()
-      .create("label")
-      .text("False");
-    const extricationInputFalseText = Html()
-      .create("label")
-      .text("False");
-    const extricationInputTrueText = Html()
-      .create("label")
-      .text("True");
+      .text("(Check Box if true)");
 
     const prolongedExtricationLabel = Html()
       .create("label")
@@ -154,35 +151,34 @@ class Components {
       .create("input")
       .addClass("MVC__block-item")
       .addAttribute("id", "prolonged-extrication-true")
-      .addAttribute("type", "radio")
+      .addAttribute("type", "checkbox")
       .addAttribute("name", "prolonged extrication");
 
-    const prolongedExtricationInputFalse = Html()
-      .create("input")
-      .addClass("MVC__block-item")
-      .addAttribute("id", "prolonged-extrication-false")
-      .addAttribute("type", "radio")
-      .addAttribute("name", "prolonged extrication");
+    // const prolongedExtricationInputFalse = Html()
+    //   .create("input")
+    //   .addClass("MVC__block-item")
+    //   .addAttribute("id", "prolonged-extrication-false")
+    //   .addAttribute("type", "radio")
+    //   .addAttribute("name", "prolonged extrication");
 
     const immobilizedLabel = Html()
       .create("label")
       .text("Immobilized: ");
 
-    const immobilizedInputTrue = Html()
+    const immobilizedInputCheckBox = Html()
       .create("input")
       .addClass("MVC__block-item")
       .addAttribute("id", "immobilized-true")
-      .addAttribute("type", "radio")
+      .addAttribute("type", "checkbox")
       .addAttribute("name", "immobilized")
-      .text("True");
 
-    const immobilizedInputFalse = Html()
-      .create("input")
-      .addClass("MVC__block-item")
-      .addAttribute("id", "immobilized-false")
-      .addAttribute("type", "radio")
-      .addAttribute("name", "immobilized")
-      .text("False");
+    // const immobilizedInputFalse = Html()
+    //   .create("input")
+    //   .addClass("MVC__block-item")
+    //   .addAttribute("id", "immobilized-false")
+    //   .addAttribute("type", "radio")
+    //   .addAttribute("name", "immobilized")
+    //   .text("False");
 
 
 
@@ -193,24 +189,19 @@ class Components {
 
     contentBlock.addChild(ambulatoryContentDiv);
     ambulatoryContentDiv.addChild(ambulatoryLabel);
-    ambulatoryContentDiv.addChild(ambulatoryInputTrue);
-    ambulatoryContentDiv.addChild(ambulatoryInputTrueText);
-    ambulatoryContentDiv.addChild(ambulatoryInputFalse);
-    ambulatoryContentDiv.addChild(ambulatoryInputFalseText);
+    ambulatoryContentDiv.addChild(ambulatoryInputCheckBox);
+    ambulatoryContentDiv.addChild(ambulatoryInputCheckBoxText);
 
     contentBlock.addChild(extricationContentDiv);
     extricationContentDiv.addChild(prolongedExtricationLabel);
     extricationContentDiv.addChild(prolongedExtricationInputTrue);
-    extricationContentDiv.addChild(extricationInputTrueText);
-    extricationContentDiv.addChild(prolongedExtricationInputFalse);
-    extricationContentDiv.addChild(extricationInputFalseText);
+    extricationContentDiv.addChild(prolongedExtricationInputText);
+    
 
     contentBlock.addChild(immobilizationContentDiv);
     immobilizationContentDiv.addChild(immobilizedLabel);
-    immobilizationContentDiv.addChild(immobilizedInputTrue);
-    immobilizationContentDiv.addChild(immobilizedInputTrueText);
-    immobilizationContentDiv.addChild(immobilizedInputFalse);
-    immobilizationContentDiv.addChild(immobilizedInputFalseText);
+    immobilizationContentDiv.addChild(immobilizedInputCheckBox);
+    immobilizationContentDiv.addChild(immobilizedInputcheckBoxText);
 
     const traumaFormContent = this.renderTraumaFormContent();
     contentBlock.addChild(traumaFormContent);

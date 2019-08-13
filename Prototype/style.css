@@ -67,8 +67,17 @@ li {
   
 }
 
+.MVC__block-item {
+  margin:0.25rem;
+}
+
 .receiving {
   margin: 0 20rem;
+}
+
+.MVC__block {
+  display:flex;
+  flex-direction: column;
 }
 
 .receiving__report-list {
