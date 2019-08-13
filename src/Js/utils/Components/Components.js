@@ -82,6 +82,10 @@ class Components {
     const container = Html().select(".container");
     const contentBlock = Html()
       .create("section")
+      .addClass("Form_Block");
+
+    const mvcContentBlock = Html()
+      .create("section")
       .addClass("MVC__block");
     const seatPositionLabel = Html()
       .create("label")
@@ -118,7 +122,7 @@ class Components {
       .addAttribute("type", "checkbox")
       .addAttribute("name", "ambulatory");
 
-      console.log(ambulatoryInputCheckBox.value);
+    console.log(ambulatoryInputCheckBox.value);
 
     // const ambulatoryInputFalse = Html()
     //   .create("input")
@@ -137,7 +141,7 @@ class Components {
     const ambulatoryInputCheckBoxText = Html()
       .create("label")
       .text("(Check box if True)");
-   
+
     // const extricationInputFalseText = Html()
     //   .create("label")
     //   .text("False");
@@ -184,26 +188,29 @@ class Components {
 
 
 
-    contentBlock.addChild(seatPositionLabel);
-    contentBlock.addChild(seatPositionInput);
-    contentBlock.addChild(speedLabel);
-    contentBlock.addChild(speedInput);
+    mvcContentBlock.addChild(seatPositionLabel);
+    mvcContentBlock.addChild(seatPositionInput);
+    mvcContentBlock.addChild(speedLabel);
+    mvcContentBlock.addChild(speedInput);
 
-    contentBlock.addChild(ambulatoryContentDiv);
+    mvcContentBlock.addChild(ambulatoryContentDiv);
     ambulatoryContentDiv.addChild(ambulatoryLabel);
     ambulatoryContentDiv.addChild(ambulatoryInputCheckBox);
     ambulatoryContentDiv.addChild(ambulatoryInputCheckBoxText);
 
-    contentBlock.addChild(extricationContentDiv);
+    mvcContentBlock.addChild(extricationContentDiv);
     extricationContentDiv.addChild(prolongedExtricationLabel);
     extricationContentDiv.addChild(prolongedExtricationInputTrue);
     extricationContentDiv.addChild(prolongedExtricationInputText);
-    
 
-    contentBlock.addChild(immobilizationContentDiv);
+
+    mvcContentBlock.addChild(immobilizationContentDiv);
     immobilizationContentDiv.addChild(immobilizedLabel);
     immobilizationContentDiv.addChild(immobilizedInputCheckBox);
     immobilizationContentDiv.addChild(immobilizedInputcheckBoxText);
+
+    mvcContentBlock
+    contentBlock.addChild(mvcContentBlock)
 
     const traumaFormContent = this.renderTraumaFormContent();
     contentBlock.addChild(traumaFormContent);
@@ -352,6 +359,65 @@ class Components {
       .create("div")
       .addClass("container");
 
+    // this is the general info section, could be recfactored into sperate section later
+    const generalSectionBlock = Html()
+      .create("section")
+      .addClass("GeneralInfo__section");
+
+    const generalSectionTitle = Html()
+      .create("h3")
+      .text("General Information: ");
+
+    const dateEntryLabel = Html()
+      .create("label")
+      .text("Date");
+    const dateInputField = Html()
+      .create("input")
+      .addClass("generalInfo__section-field")
+      .addAttribute("id", "dateField")
+      .addAttribute("type", "text")
+      .addAttribute("name", "Date");
+
+    const timeOfDayEntryLabel = Html()
+      .create("label")
+      .text("Time of Day");
+    const timeOFDayInputField = Html()
+      .create("input")
+      .addClass("generalInfo__section-field")
+      .addAttribute("id", "timeOfDayField")
+      .addAttribute("type", "text")
+      .addAttribute("name", "Time of Day");
+
+    const sexEntryLabel = Html()
+      .create("label")
+      .text("Sex");
+    const sexInputField = Html()
+      .create("input")
+      .addClass("generalInfo__section-field")
+      .addAttribute("id", "sexField")
+      .addAttribute("type", "text")
+      .addAttribute("name", "Sex");
+
+    const ageEntryLabel = Html()
+      .create("label")
+      .text("Age");
+    const ageInputField = Html()
+      .create("input")
+      .addClass("generalInfo__section-field")
+      .addAttribute("id", "ageField")
+      .addAttribute("type", "text")
+      .addAttribute("name", "Age");
+    generalSectionBlock.addChild(generalSectionTitle)
+    generalSectionBlock.addChild(dateEntryLabel)
+    generalSectionBlock.addChild(dateInputField)
+    generalSectionBlock.addChild(timeOfDayEntryLabel)
+    generalSectionBlock.addChild(timeOFDayInputField)
+    generalSectionBlock.addChild(sexEntryLabel)
+    generalSectionBlock.addChild(sexInputField)
+    generalSectionBlock.addChild(ageEntryLabel)
+    generalSectionBlock.addChild(ageInputField)
+    traumaFormContentBlock.addChild(generalSectionBlock)
+    // this is the vitals section, can refactor into method later
     const vitalsSectionBlock = Html()
       .create("section")
       .addClass("vitals__section");
@@ -464,11 +530,12 @@ class Components {
     vitalsSectionBlock.addChild(gcsInputField);
     vitalsSectionBlock.addChild(gluEntryLabel);
     vitalsSectionBlock.addChild(gluInputField);
-    vitalsSectionBlock.addChild(narrativeEntryLabel);
-    vitalsSectionBlock.addChild(narrativeInputField);
-    vitalsSectionBlock.addChild(speechButton);
-    vitalsSectionBlock.addChild(traumaSubmitButton);
+
     traumaFormContentBlock.addChild(vitalsSectionBlock);
+    traumaFormContentBlock.addChild(narrativeEntryLabel);
+    traumaFormContentBlock.addChild(narrativeInputField);
+    traumaFormContentBlock.addChild(speechButton);
+    traumaFormContentBlock.addChild(traumaSubmitButton);
 
     return traumaFormContentBlock;
   }
@@ -476,10 +543,11 @@ class Components {
   mvcClick(event) {
     event.preventDefault();
     const newMedicNum = "1234";
-    const newDate = "May 1";
+    const newDate = document.querySelector("#dateField").value;
     const newComplaint = "MVC";
-    const newSex = "M";
-    const newAge = "21";
+    const newSex = document.querySelector("#sexField").value;
+    const newAge = document.querySelector("#ageField").value;
+    const newtimeOfIncident = document.querySelector("#timeOfDayField").value;
     const bpEntryInputFieldValue = document.querySelector("#bpField").value;
     const hrEntryInputFieldValue = document.querySelector("#hrField").value;
     const spo2EntryInputFieldValue = document.querySelector("#spO2Field").value;
@@ -493,25 +561,26 @@ class Components {
     const speedInputFieldValue = document.querySelector("#speed").value;
 
     let ambulatoryBoxValue = document.querySelector("#ambulatory-box")
-    if(ambulatoryBoxValue.checked) {
-      ambulatoryBoxValue = true 
+    if (ambulatoryBoxValue.checked) {
+      ambulatoryBoxValue = true
     } else ambulatoryBoxValue = false
     console.log(ambulatoryBoxValue)
     let prolongedExtricationBoxValue = document.querySelector("#prolonged-extrication-box")
-    if(prolongedExtricationBoxValue.checked) {
-      prolongedExtricationBoxValue = true 
+    if (prolongedExtricationBoxValue.checked) {
+      prolongedExtricationBoxValue = true
     } else prolongedExtricationBoxValue = false
     let immobilizedBoxValue = document.querySelector("#immobilized-box")
-    if(immobilizedBoxValue.checked) {
-      immobilizedBoxValue = true 
+    if (immobilizedBoxValue.checked) {
+      immobilizedBoxValue = true
     } else immobilizedBoxValue = false
-   
+
     Api().postRequest(
       "http://localhost:8080/api/motor-vehicle-crash-reports",
       {
         medicNum: newMedicNum,
         chiefComplaint: newComplaint,
         date: newDate,
+        timeOfIncident: newtimeOfIncident,
         narrative: narrativeEntryInputFieldValue,
         sex: newSex,
         age: newAge,
