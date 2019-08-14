@@ -67,6 +67,19 @@ li {
   
 }
 
+.back__options__link {
+  text-decoration: underline;
+  size:1.5rem;
+  margin: 0.5rem;
+  color: rebeccapurple;
+}
+
+.back__options__link:hover {
+  color: black;
+  font-weight: bolder;
+  size: 2rem;
+}
+
 .MVC__block-item {
   margin:0.25rem;
 }
