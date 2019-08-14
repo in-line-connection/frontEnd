@@ -17,16 +17,6 @@ hr {
   margin-bottom: 1rem;
 }
 body {
-  background-image: url("./image/JJF_9463\ \(1\).jpg");
-  background-color: #ededed;
-  height: 500px; 
-  background-position: center; 
-  background-repeat: no-repeat; 
-  background-size: cover;
-   
-
-}
-body {
   background-color: #ededed;
 }
 input {
@@ -51,6 +41,7 @@ li {
 
 header {
     align-items: center;
+
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -107,6 +98,37 @@ footer {
 .wrapper {
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  
+}
+.Login {
+background-color: #fbf2f2e7;
+padding: .25rem;
+margin-left: 80px;
+margin-top: 200px;
+height: 15rem;
+width: 18rem;
+border: 2px solid blue;
+box-shadow: 5px 5px 5px grey;
+display: flex;
+justify-content: center;
+justify-items: center;
+border-radius: 10px;
+
+}
+
+.form__title {
+  margin-top: 0.5rem;
+}
+main {
+  background-color: #ededed;
+  height: 100vh;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-image: linear-gradient(
+       rgba(29, 27, 27, 0.137),
+       rgba(36, 35, 35, 0.363)), url("./image/JJF_9463\ \(1\).jpg");
 }
 
 /* .header__image {
