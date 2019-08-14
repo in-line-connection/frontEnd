@@ -1,6 +1,7 @@
 import Html from "../Html/Html";
 import Api from "../Api/Api";
 import testSpeech from "../Speech/Talktool";
+import { Array } from "core-js";
 
 export default () => new Components();
 class Components {
@@ -81,7 +82,7 @@ class Components {
   renderMVCQuestions() {
     const container = Html().select(".container");
     const contentBlock = Html()
-      .create("section")
+      .create("Form")
       .addClass("Form_Block");
     const backToOptionsLink = Html()
       .create("a")
@@ -101,6 +102,7 @@ class Components {
     const seatPositionInput = Html()
       .create("input")
       .addClass("MVC__block-item")
+      .addClass("Required-Field")
       .addAttribute("id", "seatPosition")
       .addAttribute("type", "text")
       .addAttribute("name", "seat-position");
@@ -111,6 +113,7 @@ class Components {
     const speedInput = Html()
       .create("input")
       .addClass("MVC__block-item")
+      .addClass("Required-Field")
       .addAttribute("id", "speed")
       .addAttribute("type", "text")
       .addAttribute("name", "speed");
@@ -130,7 +133,7 @@ class Components {
       .addAttribute("type", "checkbox")
       .addAttribute("name", "ambulatory");
 
-    console.log(ambulatoryInputCheckBox.value);
+    // console.log(ambulatoryInputCheckBox.value);
 
     // const ambulatoryInputFalse = Html()
     //   .create("input")
@@ -389,6 +392,7 @@ class Components {
     const dateInputField = Html()
       .create("input")
       .addClass("generalInfo__section-field")
+      .addClass("Required-Field")
       .addAttribute("id", "dateField")
       .addAttribute("type", "text")
       .addAttribute("name", "Date");
@@ -399,6 +403,7 @@ class Components {
     const timeOFDayInputField = Html()
       .create("input")
       .addClass("generalInfo__section-field")
+      .addClass("Required-Field")
       .addAttribute("id", "timeOfDayField")
       .addAttribute("type", "text")
       .addAttribute("name", "Time of Day");
@@ -409,6 +414,7 @@ class Components {
     const sexInputField = Html()
       .create("input")
       .addClass("generalInfo__section-field")
+      .addClass("Required-Field")
       .addAttribute("id", "sexField")
       .addAttribute("type", "text")
       .addAttribute("name", "Sex");
@@ -419,6 +425,7 @@ class Components {
     const ageInputField = Html()
       .create("input")
       .addClass("generalInfo__section-field")
+      .addClass("Required-Field")
       .addAttribute("id", "ageField")
       .addAttribute("type", "text")
       .addAttribute("name", "Age");
@@ -447,6 +454,7 @@ class Components {
     const bpInputField = Html()
       .create("input")
       .addClass("vitals__section-field")
+      .addClass("Required-Field")
       .addAttribute("id", "bpField")
       .addAttribute("type", "text")
       .addAttribute("name", "B/P");
@@ -457,6 +465,7 @@ class Components {
     const hrInputField = Html()
       .create("input")
       .addClass("vitals__section-field")
+      .addClass("Required-Field")
       .addAttribute("id", "hrField")
       .addAttribute("type", "text")
       .addAttribute("name", "H/R");
@@ -466,6 +475,7 @@ class Components {
     const spo2InputField = Html()
       .create("input")
       .addClass("vitals__section-field")
+      .addClass("Required-Field")
       .addAttribute("id", "spO2Field")
       .addAttribute("type", "text")
       .addAttribute("name", "Spo2");
@@ -475,6 +485,7 @@ class Components {
     const rInputField = Html()
       .create("input")
       .addClass("vitals__section-field")
+      .addClass("Required-Field")
       .addAttribute("id", "rField")
       .addAttribute("type", "text")
       .addAttribute("name", "R");
@@ -484,6 +495,7 @@ class Components {
     const gcsInputField = Html()
       .create("input")
       .addClass("vitals__section-field")
+      .addClass("Required-Field")
       .addAttribute("id", "gcsField")
       .addAttribute("type", "text")
       .addAttribute("name", "GCS");
@@ -493,6 +505,7 @@ class Components {
     const gluInputField = Html()
       .create("input")
       .addClass("vitals__section-field")
+      .addClass("Required-Field")
       .addAttribute("id", "gluField")
       .addAttribute("type", "text")
       .addAttribute("name", "GLU");
@@ -502,6 +515,7 @@ class Components {
     const narrativeInputField = Html()
       .create("input")
       .addClass("vitals__section-fieldNar")
+      .addClass("Required-Field")
       .addAttribute("id", "narrativeField")
       .addAttribute("type", "text")
       .addAttribute("name", "narrative")
@@ -517,12 +531,19 @@ class Components {
         testSpeech();
       });
 
+    // const traumaSubmitButton = Html()
+    //   .create("button")
+    //   .addClass("trauma__submit-button")
+    //   .text("Submit")
+    //   .click(event => {
+    //     this.mvcClick(event);
+
     const traumaSubmitButton = Html()
       .create("button")
       .addClass("trauma__submit-button")
       .text("Submit")
       .click(event => {
-        this.mvcClick(event);
+        this.inputChecker(event);
       });
 
     traumaFormContentBlock.addChild(traumaFormContainer);
@@ -551,11 +572,38 @@ class Components {
     return traumaFormContentBlock;
   }
 
+
+  inputChecker(event) {
+    const requiredItems = document.querySelectorAll(".Required-Field")
+    console.log("test")
+    if (
+      this.chceckForEmptyValues(requiredItems)
+    ) {
+      alert('Value is required..')
+      event.preventDefault();
+
+    } else {
+      console.log("Report Sent")
+      this.mvcClick(event)
+
+    }
+
+  }
+  chceckForEmptyValues(nodeList) {
+    let hasEmptyField = false;
+    nodeList.forEach(node => {
+      if (node.value === undefined || node.value === "") {
+        hasEmptyField = true
+      }
+    })
+    return hasEmptyField
+  }
   mvcClick(event) {
+
     event.preventDefault();
     const newMedicNum = "1234";
-    const newDate = document.querySelector("#dateField").value;
     const newComplaint = "MVC";
+    const newDate = document.querySelector("#dateField").value;
     const newSex = document.querySelector("#sexField").value;
     const newAge = document.querySelector("#ageField").value;
     const newtimeOfIncident = document.querySelector("#timeOfDayField").value;
@@ -608,11 +656,17 @@ class Components {
         speed: speedInputFieldValue,
         ambulatory: ambulatoryBoxValue,
         prolongedExtrication: prolongedExtricationBoxValue,
-        immobilized: immobilizedBoxValue
-      },
-      mvcReport => {
-        this.renderPageOptions();
-      }
-    );
+
+        immobilized: immobilizedBoxValue,
+      })
+    this.renderPageOptions();
+
   }
 }
+
+// mvcReport => {
+//   this.renderPageOptions();
+// }
+
+
+
