@@ -81,7 +81,7 @@ class Components {
   renderMVCQuestions() {
     const container = Html().select(".container");
     const contentBlock = Html()
-      .create("section")
+      .create("Form")
       .addClass("Form_Block");
 
     const mvcContentBlock = Html()
@@ -442,6 +442,7 @@ class Components {
     const hrInputField = Html()
       .create("input")
       .addClass("vitals__section-field")
+      .addClass("Required-Feild")
       .addAttribute("id", "hrField")
       .addAttribute("type", "text")
       .addAttribute("name", "H/R");
@@ -451,6 +452,7 @@ class Components {
     const spo2InputField = Html()
       .create("input")
       .addClass("vitals__section-field")
+      .addClass("Required-Feild")
       .addAttribute("id", "spO2Field")
       .addAttribute("type", "text")
       .addAttribute("name", "Spo2");
@@ -541,10 +543,11 @@ class Components {
   }
 
   mvcClick(event) {
+
     event.preventDefault();
     const newMedicNum = "1234";
-    const newDate = document.querySelector("#dateField").value;
     const newComplaint = "MVC";
+    const newDate = document.querySelector("#dateField").value;
     const newSex = document.querySelector("#sexField").value;
     const newAge = document.querySelector("#ageField").value;
     const newtimeOfIncident = document.querySelector("#timeOfDayField").value;
@@ -595,10 +598,24 @@ class Components {
         ambulatory: ambulatoryBoxValue,
         prolongedExtrication: prolongedExtricationBoxValue,
         immobilized: immobilizedBoxValue,
-      },
-      mvcReport => {
-        this.renderPageOptions();
-      }
-    );
+      })
+    this.renderPageOptions();
   }
+
+  // mvcReport => {
+  //   this.renderPageOptions();
+  // }
+  ;
 }
+
+// 
+// var requiredItems = document.querySelectorAll("Required-Feild")
+// requiredItems.forEach(submitionCheck(element) {
+
+
+// });
+
+// else {
+//   alert('Value is required..')
+//   event.preventDefault();
+// }
