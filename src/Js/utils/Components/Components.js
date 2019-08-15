@@ -32,9 +32,10 @@ class Components {
     const loginPageTitle = Html()
       .create("h2")
       .addClass("Login__title");
-    const loginFieldSet = Html()
-      .create("fieldset")
-      .addClass("login__form");
+    const loginForm = Html()
+      .create("form")
+      .addClass("login__form")
+      .addAttribute("action", "");
     const MedicNumLabel = Html()
       .create("label")
       .addClass("login__form-label")
@@ -50,7 +51,8 @@ class Components {
       .create("input")
       .addAttribute("type", "text");
     const submitButton = Html()
-      .create("button")
+      .create("input")
+      .addAttribute("type", "submit")
       .addClass("login__form-button")
       .text("Login")
       .click(event => {
@@ -59,13 +61,17 @@ class Components {
       });
 
     loginContentBlock.addChild(loginPageTitle);
-    loginContentBlock.addChild(loginFieldSet);
-    loginFieldSet.addChild(MedicNumLabel);
-    loginFieldSet.addChild(medicNumInputForm);
-    loginFieldSet.addChild(companyNameLabel);
-    loginFieldSet.addChild(companyInputForm);
-    loginContentBlock.addChild(submitButton);
-    return loginContentBlock;
+
+    loginContentBlock.addChild(loginForm);
+    loginForm.addChild(MedicNumLabel);
+    loginForm.addChild(medicNumInputForm);
+    loginForm.addChild(companyNameLabel);
+    loginForm.addChild(companyInputForm);
+    loginForm.addChild(submitButton);
+    homepageContentBlock.addChild(loginContentBlock);
+    backgroundImage.addChild(homepageContentBlock);
+    return backgroundImage;
+
   }
   renderMainFooter() {
     const footer = Html()
@@ -715,34 +721,27 @@ class Components {
     return traumaFormContentBlock;
   }
 
-
   inputChecker(event) {
-    const requiredItems = document.querySelectorAll(".Required-Field")
-    console.log("test")
-    if (
-      this.chceckForEmptyValues(requiredItems)
-    ) {
-      alert('Value is required..')
+    const requiredItems = document.querySelectorAll(".Required-Field");
+    console.log("test");
+    if (this.chceckForEmptyValues(requiredItems)) {
+      alert("Value is required..");
       event.preventDefault();
-
     } else {
-      console.log("Report Sent")
-      this.mvcClick(event)
-
+      console.log("Report Sent");
+      this.mvcClick(event);
     }
-
   }
   chceckForEmptyValues(nodeList) {
     let hasEmptyField = false;
     nodeList.forEach(node => {
       if (node.value === undefined || node.value === "") {
-        hasEmptyField = true
+        hasEmptyField = true;
       }
-    })
-    return hasEmptyField
+    });
+    return hasEmptyField;
   }
   mvcClick(event) {
-
     event.preventDefault();
     const newMedicNum = "1234";
     const newComplaint = "MVC";
@@ -779,37 +778,31 @@ class Components {
       immobilizedBoxValue = true;
     } else immobilizedBoxValue = false;
 
-    Api().postRequest(
-      "http://localhost:8080/api/motor-vehicle-crash-reports",
-      {
-        medicNum: newMedicNum,
-        chiefComplaint: newComplaint,
-        date: newDate,
-        timeOfIncident: newtimeOfIncident,
-        narrative: narrativeEntryInputFieldValue,
-        sex: newSex,
-        age: newAge,
-        bloodPressure: bpEntryInputFieldValue,
-        heartRate: hrEntryInputFieldValue,
-        spO2: spo2EntryInputFieldValue,
-        respiratoryRate: rEntryInputFieldValue,
-        gcs: gcsEntryInputFieldValue,
-        bloodSugar: gluEntryInputFieldValue,
-        seatPosition: seatPositionInputFieldValue,
-        speed: speedInputFieldValue,
-        ambulatory: ambulatoryBoxValue,
-        prolongedExtrication: prolongedExtricationBoxValue,
+    Api().postRequest("http://localhost:8080/api/motor-vehicle-crash-reports", {
+      medicNum: newMedicNum,
+      chiefComplaint: newComplaint,
+      date: newDate,
+      timeOfIncident: newtimeOfIncident,
+      narrative: narrativeEntryInputFieldValue,
+      sex: newSex,
+      age: newAge,
+      bloodPressure: bpEntryInputFieldValue,
+      heartRate: hrEntryInputFieldValue,
+      spO2: spo2EntryInputFieldValue,
+      respiratoryRate: rEntryInputFieldValue,
+      gcs: gcsEntryInputFieldValue,
+      bloodSugar: gluEntryInputFieldValue,
+      seatPosition: seatPositionInputFieldValue,
+      speed: speedInputFieldValue,
+      ambulatory: ambulatoryBoxValue,
+      prolongedExtrication: prolongedExtricationBoxValue,
 
-        immobilized: immobilizedBoxValue,
-      })
+      immobilized: immobilizedBoxValue
+    });
     this.renderPageOptions();
-
   }
 }
 
 // mvcReport => {
 //   this.renderPageOptions();
 // }
-
-
-
