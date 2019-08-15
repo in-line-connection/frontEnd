@@ -4,6 +4,7 @@ import testSpeech from "../Speech/Talktool";
 import { Array } from "core-js";
 
 export default () => new Components();
+
 class Components {
   getAppContext() {
     return Html().select("#app");
@@ -26,6 +27,12 @@ class Components {
     return mainHeader;
   }
   renderLoginFields() {
+    const homepageContentBlock = Html()
+      .create("div")
+      .addClass("homePageContent");
+    const backgroundImage = Html()
+      .create("div")
+      .addClass("backgroundImage");
     const loginContentBlock = Html()
       .create("div")
       .addClass("Login");
@@ -65,7 +72,9 @@ class Components {
     loginFieldSet.addChild(companyNameLabel);
     loginFieldSet.addChild(companyInputForm);
     loginContentBlock.addChild(submitButton);
-    return loginContentBlock;
+    homepageContentBlock.addChild(loginContentBlock);
+    backgroundImage.addChild(homepageContentBlock);
+    return backgroundImage;
   }
   renderMainFooter() {
     const footer = Html()

@@ -4,9 +4,7 @@
   padding: 0;
 }
 
-
 html {
-  
   font: 20px/1.168;
 }
 
@@ -33,42 +31,34 @@ input {
   font-size: 30px;
 }
 
-
-
 li {
   list-style-type: none;
 }
 
 header {
-    align-items: center;
+  align-items: center;
 
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 3rem;
-    color: black;
-    background-color: #2a2ae6;
-    color: azure;
-    font-style: oblique;
-    padding: .5rem;
-    
-  }
-
-
-
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 3rem;
+  color: black;
+  background-color: #2a2ae6;
+  color: azure;
+  font-style: oblique;
+  padding: 0.5rem;
+}
 
 footer {
-  background-color:#2a2ae6;
+  background-color: #2a2ae6;
   font-style: oblique;
   color: #dddddd;
   text-align: center;
-  
 }
 
 .buttons__container {
   display: grid;
   grid-template-columns: 90px 90px 90px;
-  
 }
 
 .back__options__link {
@@ -120,44 +110,46 @@ footer {
 .wrapper {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  
+  max-height: 100vh;
+}
+.homePageContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .Login {
-background-color: #fbf2f2e7;
-padding: .25rem;
-margin-left: 80px;
-margin-top: 200px;
-height: 15rem;
-width: 18rem;
-border: 2px solid blue;
-box-shadow: 5px 5px 5px grey;
-display: flex;
-justify-content: center;
-justify-items: center;
-border-radius: 10px;
-
+  background-color: #fbf2f2e7;
+  padding: 0.25rem;
+  height: 15rem;
+  width: 18rem;
+  border: 2px solid blue;
+  box-shadow: 5px 5px 5px grey;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  border-radius: 10px;
 }
 
 .form__title {
   margin-top: 0.5rem;
 }
-main {
+.backgroundImage {
   background-color: #ededed;
   height: 100vh;
-  background-position: center; 
-  background-repeat: no-repeat; 
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
   background-image: linear-gradient(
-       rgba(29, 27, 27, 0.137),
-       rgba(36, 35, 35, 0.363)), url("./image/JJF_9463\ \(1\).jpg");
+      rgba(29, 27, 27, 0.137),
+      rgba(36, 35, 35, 0.363)
+    ),
+    url("./image/background.jpg");
 }
 
 /* .header__image {
   width: 80vw;
 } */
 .container {
-
   padding-top: 10px;
   display: flex;
   flex-direction: column;
@@ -173,7 +165,7 @@ main {
   width: 100px;
 }
 .header__image img {
-background-image: cover;
+  background-image: cover;
 }
 
 .vitals__section {
