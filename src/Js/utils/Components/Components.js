@@ -4,7 +4,6 @@ import testSpeech from "../Speech/Talktool";
 import { Array } from "core-js";
 
 export default () => new Components();
-
 class Components {
   getAppContext() {
     return Html().select("#app");
@@ -27,12 +26,6 @@ class Components {
     return mainHeader;
   }
   renderLoginFields() {
-    const homepageContentBlock = Html()
-      .create("div")
-      .addClass("homePageContent");
-    const backgroundImage = Html()
-      .create("div")
-      .addClass("backgroundImage");
     const loginContentBlock = Html()
       .create("div")
       .addClass("Login");
@@ -68,6 +61,7 @@ class Components {
       });
 
     loginContentBlock.addChild(loginPageTitle);
+
     loginContentBlock.addChild(loginForm);
     loginForm.addChild(MedicNumLabel);
     loginForm.addChild(medicNumInputForm);
@@ -77,6 +71,7 @@ class Components {
     homepageContentBlock.addChild(loginContentBlock);
     backgroundImage.addChild(homepageContentBlock);
     return backgroundImage;
+
   }
   renderMainFooter() {
     const footer = Html()
@@ -113,10 +108,20 @@ class Components {
     const seatPositionInput = Html()
       .create("input")
       .addClass("MVC__block-item")
+      .addClass("seatInput")
       .addClass("Required-Field")
       .addAttribute("id", "seatPosition")
       .addAttribute("type", "text")
       .addAttribute("name", "seat-position");
+    const speechButton13 = Html()
+      .create("button")
+      .addClass("speechButton")
+      .text("push to speak")
+      .click(event => {
+        event.preventDefault();
+
+        testSpeech(".seatInput");
+      })
 
     const speedLabel = Html()
       .create("label")
@@ -124,10 +129,21 @@ class Components {
     const speedInput = Html()
       .create("input")
       .addClass("MVC__block-item")
+      .addClass("speedInput")
       .addClass("Required-Field")
       .addAttribute("id", "speed")
       .addAttribute("type", "text")
       .addAttribute("name", "speed");
+    const speechButton12 = Html()
+      .create("button")
+      .addClass("speechButton")
+      .text("push to speak")
+      .click(event => {
+        event.preventDefault();
+
+        testSpeech(".speedInput");
+      })
+
 
     const ambulatoryContentDiv = Html().create("div");
     const extricationContentDiv = Html().create("div");
@@ -211,8 +227,10 @@ class Components {
     mvcContentBlock.addChild(backToOptionsLink);
     mvcContentBlock.addChild(seatPositionLabel);
     mvcContentBlock.addChild(seatPositionInput);
+    mvcContentBlock.addChild(speechButton13)
     mvcContentBlock.addChild(speedLabel);
     mvcContentBlock.addChild(speedInput);
+    mvcContentBlock.addChild(speechButton12)
 
     mvcContentBlock.addChild(ambulatoryContentDiv);
     ambulatoryContentDiv.addChild(ambulatoryLabel);
@@ -403,10 +421,20 @@ class Components {
     const dateInputField = Html()
       .create("input")
       .addClass("generalInfo__section-field")
+      .addClass("dateInput")
       .addClass("Required-Field")
       .addAttribute("id", "dateField")
       .addAttribute("type", "text")
       .addAttribute("name", "Date");
+    const speechButton11 = Html()
+      .create("button")
+      .addClass("speechButton")
+      .text("push to speak")
+      .click(event => {
+        event.preventDefault();
+
+        testSpeech(".dateInput");
+      })
 
     const timeOfDayEntryLabel = Html()
       .create("label")
@@ -414,10 +442,20 @@ class Components {
     const timeOFDayInputField = Html()
       .create("input")
       .addClass("generalInfo__section-field")
+      .addClass("timeInput")
       .addClass("Required-Field")
       .addAttribute("id", "timeOfDayField")
       .addAttribute("type", "text")
       .addAttribute("name", "Time of Day");
+    const speechButton10 = Html()
+      .create("button")
+      .addClass("speechButton")
+      .text("push to speak")
+      .click(event => {
+        event.preventDefault();
+
+        testSpeech(".timeInput");
+      })
 
     const sexEntryLabel = Html()
       .create("label")
@@ -425,10 +463,21 @@ class Components {
     const sexInputField = Html()
       .create("input")
       .addClass("generalInfo__section-field")
+      .addClass("sexInput")
       .addClass("Required-Field")
       .addAttribute("id", "sexField")
       .addAttribute("type", "text")
       .addAttribute("name", "Sex");
+
+    const speechButton9 = Html()
+      .create("button")
+      .addClass("speechButton")
+      .text("push to speak")
+      .click(event => {
+        event.preventDefault();
+
+        testSpeech(".sexInput");
+      })
 
     const ageEntryLabel = Html()
       .create("label")
@@ -436,19 +485,33 @@ class Components {
     const ageInputField = Html()
       .create("input")
       .addClass("generalInfo__section-field")
+      .addClass("ageInput")
       .addClass("Required-Field")
       .addAttribute("id", "ageField")
       .addAttribute("type", "text")
       .addAttribute("name", "Age");
+    const speechButton8 = Html()
+      .create("button")
+      .addClass("speechButton")
+      .text("push to speak")
+      .click(event => {
+        event.preventDefault();
+
+        testSpeech(".ageInput");
+      })
     generalSectionBlock.addChild(generalSectionTitle);
     generalSectionBlock.addChild(dateEntryLabel);
     generalSectionBlock.addChild(dateInputField);
+    generalSectionBlock.addChild(speechButton11)
     generalSectionBlock.addChild(timeOfDayEntryLabel);
     generalSectionBlock.addChild(timeOFDayInputField);
+    generalSectionBlock.addChild(speechButton10)
     generalSectionBlock.addChild(sexEntryLabel);
     generalSectionBlock.addChild(sexInputField);
+    generalSectionBlock.addChild(speechButton9)
     generalSectionBlock.addChild(ageEntryLabel);
     generalSectionBlock.addChild(ageInputField);
+    generalSectionBlock.addChild(speechButton8)
     traumaFormContentBlock.addChild(generalSectionBlock);
     // this is the vitals section, can refactor into method later
     const vitalsSectionBlock = Html()
@@ -465,10 +528,20 @@ class Components {
     const bpInputField = Html()
       .create("input")
       .addClass("vitals__section-field")
+      .addClass("bpInput")
       .addClass("Required-Field")
       .addAttribute("id", "bpField")
       .addAttribute("type", "text")
       .addAttribute("name", "B/P");
+    const speechButton7 = Html()
+      .create("button")
+      .addClass("speechButton")
+      .text("push to speak")
+      .click(event => {
+        event.preventDefault();
+
+        testSpeech(".bpInput");
+      })
 
     const hrEntryLabel = Html()
       .create("label")
@@ -476,20 +549,41 @@ class Components {
     const hrInputField = Html()
       .create("input")
       .addClass("vitals__section-field")
+      .addClass("hrInput")
       .addClass("Required-Field")
       .addAttribute("id", "hrField")
       .addAttribute("type", "text")
       .addAttribute("name", "H/R");
+    const speechButton6 = Html()
+      .create("button")
+      .addClass("speechButton")
+      .text("push to speak")
+      .click(event => {
+        event.preventDefault();
+
+        testSpeech(".hrInput");
+      })
     const spo2EntryLabel = Html()
       .create("label")
       .text("SPO2: ");
     const spo2InputField = Html()
       .create("input")
       .addClass("vitals__section-field")
+      .addClass("spo2Input")
       .addClass("Required-Field")
       .addAttribute("id", "spO2Field")
       .addAttribute("type", "text")
       .addAttribute("name", "Spo2");
+
+    const speechButton5 = Html()
+      .create("button")
+      .addClass("speechButton")
+      .text("push to speak")
+      .click(event => {
+        event.preventDefault();
+
+        testSpeech(".spo2Input");
+      })
     const rEntryLabel = Html()
       .create("label")
       .text("R: ");
@@ -497,29 +591,66 @@ class Components {
       .create("input")
       .addClass("vitals__section-field")
       .addClass("Required-Field")
+      .addClass("rInput")
       .addAttribute("id", "rField")
       .addAttribute("type", "text")
       .addAttribute("name", "R");
+
+    const speechButton4 = Html()
+      .create("button")
+      .addClass("speechButton")
+      .text("push to speak")
+      .click(event => {
+        event.preventDefault();
+
+        testSpeech(".rInput");
+      })
+
     const gcsEntryLabel = Html()
       .create("label")
       .text("GCS: ");
     const gcsInputField = Html()
       .create("input")
       .addClass("vitals__section-field")
+      .addClass("gcsInput")
       .addClass("Required-Field")
       .addAttribute("id", "gcsField")
       .addAttribute("type", "text")
       .addAttribute("name", "GCS");
+
+    const speechButton3 = Html()
+      .create("button")
+      .addClass("speechButton")
+      .text("push to speak")
+      .click(event => {
+        event.preventDefault();
+
+        testSpeech(".gcsInput");
+      })
+
     const gluEntryLabel = Html()
       .create("label")
       .text("GLU: ");
     const gluInputField = Html()
       .create("input")
       .addClass("vitals__section-field")
+      .addClass("gluInput")
       .addClass("Required-Field")
       .addAttribute("id", "gluField")
       .addAttribute("type", "text")
       .addAttribute("name", "GLU");
+
+    const speechButton2 = Html()
+      .create("button")
+      .addClass("speechButton")
+      .text("push to speak")
+      .click(event => {
+        event.preventDefault();
+
+        testSpeech(".gluInput");
+      })
+
+
     const narrativeEntryLabel = Html()
       .create("label")
       .text("Narrative: ");
@@ -539,8 +670,9 @@ class Components {
       .click(event => {
         event.preventDefault();
 
-        testSpeech();
-      });
+        testSpeech(".vitals__section-fieldNar");
+      }
+      );
 
     // const traumaSubmitButton = Html()
     //   .create("button")
@@ -563,16 +695,22 @@ class Components {
     vitalsSectionBlock.addChild(vitalsSectionTitle);
     vitalsSectionBlock.addChild(hrEntryLabel);
     vitalsSectionBlock.addChild(hrInputField);
+    vitalsSectionBlock.addChild(speechButton6)
     vitalsSectionBlock.addChild(bpEntryLabel);
     vitalsSectionBlock.addChild(bpInputField);
+    vitalsSectionBlock.addChild(speechButton7)
     vitalsSectionBlock.addChild(spo2EntryLabel);
     vitalsSectionBlock.addChild(spo2InputField);
+    vitalsSectionBlock.addChild(speechButton5)
     vitalsSectionBlock.addChild(rEntryLabel);
     vitalsSectionBlock.addChild(rInputField);
+    vitalsSectionBlock.addChild(speechButton4)
     vitalsSectionBlock.addChild(gcsEntryLabel);
     vitalsSectionBlock.addChild(gcsInputField);
+    vitalsSectionBlock.addChild(speechButton3)
     vitalsSectionBlock.addChild(gluEntryLabel);
     vitalsSectionBlock.addChild(gluInputField);
+    vitalsSectionBlock.addChild(speechButton2)
 
     traumaFormContentBlock.addChild(vitalsSectionBlock);
     traumaFormContentBlock.addChild(narrativeEntryLabel);
