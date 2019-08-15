@@ -2,6 +2,7 @@ import Html from "../Html/Html";
 import Api from "../Api/Api";
 
 export default () => new Components();
+
 class Components {
   getAppContext() {
     return Html().select("#app");
@@ -24,6 +25,12 @@ class Components {
     return mainHeader;
   }
   renderLoginFields() {
+    const homepageContentBlock = Html()
+      .create("div")
+      .addClass("homePageContent");
+    const backgroundImage = Html()
+      .create("div")
+      .addClass("backgroundImage");
     const loginContentBlock = Html()
       .create("div")
       .addClass("Login");
@@ -63,7 +70,9 @@ class Components {
     loginFieldSet.addChild(companyNameLabel);
     loginFieldSet.addChild(companyInputForm);
     loginContentBlock.addChild(submitButton);
-    return loginContentBlock;
+    homepageContentBlock.addChild(loginContentBlock);
+    backgroundImage.addChild(homepageContentBlock);
+    return backgroundImage;
   }
   renderMainFooter() {
     const footer = Html()
@@ -72,7 +81,7 @@ class Components {
     const footerContent = Html()
       .create("small")
       .addClass("footer__copy")
-      .text("&copy 2019 In-Line Connect");
+      .html("&copy 2019 In-Line Connect");
     footer.addChild(footerContent);
     return footer;
   }
