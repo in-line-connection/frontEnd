@@ -8,7 +8,7 @@ const SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognition
 
 
 
-function testSpeech() {
+function testSpeech(className) {
 
 
     let grammar = '#JSGF V1.0; grammar phrase; public <phrase> = ' + ';';
@@ -25,7 +25,7 @@ function testSpeech() {
     recognition.onresult = function (event) {
         let speechResult = event.results[0][0].transcript.toLowerCase();
 
-        document.querySelector('.vitals__section-fieldNar').value = speechResult;
+        document.querySelector(className).value = speechResult;
         if (speechResult === 0) {
         } else {
         }
