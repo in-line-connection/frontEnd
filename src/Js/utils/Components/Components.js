@@ -26,6 +26,12 @@ class Components {
     return mainHeader;
   }
   renderLoginFields() {
+    const homepageContentBlock = Html()
+      .create("div")
+      .addClass("homePageContent");
+    const backgroundImage = Html()
+      .create("div")
+      .addClass("backgroundImage");
     const loginContentBlock = Html()
       .create("div")
       .addClass("Login");
