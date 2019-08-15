@@ -55,6 +55,11 @@ footer {
   color: #dddddd;
   text-align: center;
 }
+.Form_Block{
+  display: block;
+  justify-content: center;
+
+}
 
 .buttons__container {
   display: grid;
@@ -74,6 +79,7 @@ footer {
   size: 2rem;
 }
 
+
 .MVC__block-item {
   margin:0.25rem;
 }
@@ -84,7 +90,9 @@ footer {
 
 .MVC__block {
   display:flex;
+  flex-flow: column wrap;
   flex-direction: column;
+  flex-basis: calc(50% )
 }
 
 .receiving__report-list {
