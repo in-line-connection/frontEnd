@@ -98,7 +98,7 @@ class Components {
         event.preventDefault();
         this.renderPageOptions();
       });
-
+    const mvcBlock = Html().create("section").addClass("MVC__block");
     const mvcContentBlock = Html()
       .create("section")
       .addClass("MVC__block");
@@ -160,29 +160,16 @@ class Components {
       .addAttribute("type", "checkbox")
       .addAttribute("name", "ambulatory");
 
-    // console.log(ambulatoryInputCheckBox.value);
-
-    // const ambulatoryInputFalse = Html()
-    //   .create("input")
-    //   .addClass("MVC__block-item")
-    //   .addAttribute("id", "ambulatoryFalse")
-    //   .addAttribute("value", "False")
-    //   .addAttribute("type", "radio")
-    //   .addAttribute("name", "ambulatory");
 
     const immobilizedInputcheckBoxText = Html()
       .create("label")
       .text("(Check Box if True)");
-    // const immobilizedInputFalseText = Html()
-    //   .create("label")
-    //   .text("False");
+
     const ambulatoryInputCheckBoxText = Html()
       .create("label")
       .text("(Check box if True)");
 
-    // const extricationInputFalseText = Html()
-    //   .create("label")
-    //   .text("False");
+
     const prolongedExtricationInputText = Html()
       .create("label")
       .text("(Check Box if true)");
@@ -198,12 +185,6 @@ class Components {
       .addAttribute("type", "checkbox")
       .addAttribute("name", "prolonged extrication");
 
-    // const prolongedExtricationInputFalse = Html()
-    //   .create("input")
-    //   .addClass("MVC__block-item")
-    //   .addAttribute("id", "prolonged-extrication-false")
-    //   .addAttribute("type", "radio")
-    //   .addAttribute("name", "prolonged extrication");
 
     const immobilizedLabel = Html()
       .create("label")
@@ -216,21 +197,14 @@ class Components {
       .addAttribute("type", "checkbox")
       .addAttribute("name", "immobilized");
 
-    // const immobilizedInputFalse = Html()
-    //   .create("input")
-    //   .addClass("MVC__block-item")
-    //   .addAttribute("id", "immobilized-false")
-    //   .addAttribute("type", "radio")
-    //   .addAttribute("name", "immobilized")
-    //   .text("False");
-
     mvcContentBlock.addChild(backToOptionsLink);
-    mvcContentBlock.addChild(seatPositionLabel);
-    mvcContentBlock.addChild(seatPositionInput);
-    mvcContentBlock.addChild(speechButton13)
-    mvcContentBlock.addChild(speedLabel);
-    mvcContentBlock.addChild(speedInput);
-    mvcContentBlock.addChild(speechButton12)
+    mvcBlock.addChild(seatPositionLabel);
+    mvcBlock.addChild(seatPositionInput);
+    mvcBlock.addChild(speechButton13)
+    mvcBlock.addChild(speedLabel);
+    mvcBlock.addChild(speedInput);
+    mvcBlock.addChild(speechButton12)
+    mvcContentBlock.addChild(mvcBlock)
 
     mvcContentBlock.addChild(ambulatoryContentDiv);
     ambulatoryContentDiv.addChild(ambulatoryLabel);
@@ -447,6 +421,7 @@ class Components {
       .addAttribute("id", "timeOfDayField")
       .addAttribute("type", "text")
       .addAttribute("name", "Time of Day");
+
     const speechButton10 = Html()
       .create("button")
       .addClass("speechButton")
@@ -506,6 +481,7 @@ class Components {
     generalSectionBlock.addChild(timeOfDayEntryLabel);
     generalSectionBlock.addChild(timeOFDayInputField);
     generalSectionBlock.addChild(speechButton10)
+    generalSectionBlock.addChild(Html().create("br"))
     generalSectionBlock.addChild(sexEntryLabel);
     generalSectionBlock.addChild(sexInputField);
     generalSectionBlock.addChild(speechButton9)
@@ -650,6 +626,7 @@ class Components {
         testSpeech(".gluInput");
       })
 
+    const narrativeSection = Html().create("Section")
 
     const narrativeEntryLabel = Html()
       .create("label")
@@ -673,13 +650,6 @@ class Components {
         testSpeech(".vitals__section-fieldNar");
       }
       );
-
-    // const traumaSubmitButton = Html()
-    //   .create("button")
-    //   .addClass("trauma__submit-button")
-    //   .text("Submit")
-    //   .click(event => {
-    //     this.mvcClick(event);
 
     const traumaSubmitButton = Html()
       .create("button")
@@ -713,9 +683,10 @@ class Components {
     vitalsSectionBlock.addChild(speechButton2)
 
     traumaFormContentBlock.addChild(vitalsSectionBlock);
-    traumaFormContentBlock.addChild(narrativeEntryLabel);
-    traumaFormContentBlock.addChild(narrativeInputField);
-    traumaFormContentBlock.addChild(speechButton);
+    narrativeSection.addChild(narrativeEntryLabel);
+    narrativeSection.addChild(narrativeInputField);
+    narrativeSection.addChild(speechButton);
+    traumaFormContentBlock.addChild(narrativeSection)
     traumaFormContentBlock.addChild(traumaSubmitButton);
 
     return traumaFormContentBlock;
