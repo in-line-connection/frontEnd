@@ -105,7 +105,7 @@ class Components {
         this.renderPageOptions();
       });
     const traumaFormTitle = Html()
-      .create("h2")
+      .create("h1")
       .addClass("header__trauma")
       .text("TRAUMA");
     const mvcBlock = Html().create("section").addClass("MVC__block");
@@ -259,7 +259,7 @@ class Components {
       .create("div")
       .addClass("chiefComplaintBlock");
     const chiefComplaintTitle = Html()
-      .create("h2")
+      .create("h1")
       .addClass("chiefComplaintBlock__title")
       .text("Chief Complaint");
     const cheifComplaintButtons = Html()
@@ -340,6 +340,7 @@ class Components {
 
   renderPageOptionsContent() {
     const mainOptionsContent = Html().create("main");
+    const optionsPagePrompt = Html().create("h2").addClass("Options-Prompt").text("Choose Report Type")
     const optionsContainer = Html()
       .create("div")
       .addClass("container");
@@ -372,7 +373,7 @@ class Components {
       .addAttribute("id", "medical__label")
       .addClass("options__labels")
       .text("Medical");
-
+    optionsContainer.addChild(optionsPagePrompt)
     mainOptionsContent.addChild(optionsContainer);
     optionsContainer.addChild(optionsCardiacButton);
     optionsCardiacButton.addChild(optionsCardiacLabel);
@@ -399,14 +400,14 @@ class Components {
       .addClass("GeneralInfo__section");
 
     const generalSectionTitle = Html()
-      .create("h3")
+      .create("h2")
       .text("General Information: ");
 
 
     const dateSection = Html().create("Section")
     const dateEntryLabel = Html()
       .create("label")
-      .text("Date");
+      .text("Date:");
     const dateInputField = Html()
       .create("input")
       .addClass("generalInfo__section-field")
@@ -414,7 +415,7 @@ class Components {
       .addClass("Required-Field")
       .addAttribute("id", "dateField")
       .addAttribute("type", "text")
-      .addAttribute("name", "Date:");
+      .addAttribute("name", "Date");
     const speechButton11 = Html()
       .create("input")
       .addClass("speechButton")
@@ -427,7 +428,7 @@ class Components {
     const timeSection = Html().create("Section")
     const timeOfDayEntryLabel = Html()
       .create("label")
-      .text("Time of Day");
+      .text("Time of Day:");
     const timeOFDayInputField = Html()
       .create("input")
       .addClass("generalInfo__section-field")
@@ -435,7 +436,7 @@ class Components {
       .addClass("Required-Field")
       .addAttribute("id", "timeOfDayField")
       .addAttribute("type", "text")
-      .addAttribute("name", "Time of Day:");
+      .addAttribute("name", "Time of Day");
 
     const speechButton10 = Html()
       .create("input")
@@ -450,7 +451,7 @@ class Components {
     const sexSection = Html().create("Section")
     const sexEntryLabel = Html()
       .create("label")
-      .text("Sex");
+      .text("Sex:");
     const sexInputField = Html()
       .create("input")
       .addClass("generalInfo__section-field")
@@ -458,7 +459,7 @@ class Components {
       .addClass("Required-Field")
       .addAttribute("id", "sexField")
       .addAttribute("type", "text")
-      .addAttribute("name", "Sex:");
+      .addAttribute("name", "Sex");
 
     const speechButton9 = Html()
       .create("input")
@@ -473,7 +474,7 @@ class Components {
     const ageSection = Html().create("Section")
     const ageEntryLabel = Html()
       .create("label")
-      .text("Age");
+      .text("Age:");
     const ageInputField = Html()
       .create("input")
       .addClass("generalInfo__section-field")
@@ -481,7 +482,7 @@ class Components {
       .addClass("Required-Field")
       .addAttribute("id", "ageField")
       .addAttribute("type", "text")
-      .addAttribute("name", "Age:");
+      .addAttribute("name", "Age");
     const speechButton8 = Html()
       .create("input")
       .addClass("speechButton")
@@ -520,8 +521,8 @@ class Components {
       .addClass("vitals__section");
 
     const vitalsSectionTitle = Html()
-      .create("h3")
-      .text("Vitals Signs: ");
+      .create("h2")
+      .text("Vital Signs: ");
 
     const bpSection = Html().create("Section")
     const bpEntryLabel = Html()
@@ -661,11 +662,13 @@ class Components {
 
     const narrativeEntryLabel = Html()
       .create("label")
+      .addClass("Narrative_Title")
       .text("Narrative: ");
+
     const narrativeButtonSection = Html().create("Section")
     const narrativeInputField = Html()
-      .create("input")
-      .addClass("vitals__section-field")
+      .create("textarea")
+      .addClass("narrative__section-field")
       .addClass("vitals__section-fieldNar")
       .addClass("Required-Field")
       .addAttribute("id", "narrativeField")
@@ -695,7 +698,7 @@ class Components {
       });
 
     // traumaFormContentBlock.addChild(traumaFormTitle);
-    traumaFormContentBlock.addChild(traumaFormContainer);
+    // traumaFormContentBlock.addChild(traumaFormContainer);
 
     vitalsSectionBlock.addChild(vitalsSectionTitle);
     vitalsSectionBlock.addChild(hrEntryLabel);
