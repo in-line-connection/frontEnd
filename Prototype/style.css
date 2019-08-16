@@ -172,10 +172,11 @@ footer {
 
 /*Util Class */
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  max-height: 100vh;
+  display: grid;
+  grid-auto-rows: 3rem auto 2rem;
+  height: 100vh;
 }
+
 .homePageContent {
   display: flex;
   flex-direction: row;
@@ -209,7 +210,6 @@ footer {
 }
 .backgroundImage {
   background-color: #ededed;
-  height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
