@@ -108,6 +108,7 @@ class Components {
     const mvcContentBlock = Html()
       .create("section")
       .addClass("MVC__block");
+    const seatSection = Html().create("Section")
     const seatPositionLabel = Html()
       .create("label")
       .text("Seat Position: ");
@@ -120,15 +121,15 @@ class Components {
       .addAttribute("type", "text")
       .addAttribute("name", "seat-position");
     const speechButton13 = Html()
-      .create("button")
+      .create("input")
       .addClass("speechButton")
-      .text("push to speak")
+      .addAttribute("type", "button")
       .click(event => {
         event.preventDefault();
 
         testSpeech(".seatInput");
       })
-
+    const speedSection = Html().create("Section")
     const speedLabel = Html()
       .create("label")
       .text("Speed: ");
@@ -141,9 +142,9 @@ class Components {
       .addAttribute("type", "text")
       .addAttribute("name", "speed");
     const speechButton12 = Html()
-      .create("button")
+      .create("input")
       .addClass("speechButton")
-      .text("push to speak")
+      .addAttribute("type", "button")
       .click(event => {
         event.preventDefault();
 
@@ -154,6 +155,7 @@ class Components {
     const ambulatoryContentDiv = Html().create("div");
     const extricationContentDiv = Html().create("div");
     const immobilizationContentDiv = Html().create("div");
+
 
     const ambulatoryLabel = Html()
       .create("label")
@@ -205,11 +207,15 @@ class Components {
 
     mvcContentBlock.addChild(backToOptionsLink);
     mvcBlock.addChild(seatPositionLabel);
-    mvcBlock.addChild(seatPositionInput);
-    mvcBlock.addChild(speechButton13)
+    seatSection.addChild(seatPositionInput);
+    seatSection.addChild(speechButton13)
+    mvcBlock.addChild(seatSection);
+
     mvcBlock.addChild(speedLabel);
-    mvcBlock.addChild(speedInput);
-    mvcBlock.addChild(speechButton12)
+    speedSection.addChild(speedInput);
+    speedSection.addChild(speechButton12)
+    mvcBlock.addChild(speedSection);
+
     mvcContentBlock.addChild(mvcBlock)
 
     mvcContentBlock.addChild(ambulatoryContentDiv);
@@ -395,6 +401,8 @@ class Components {
       .create("h3")
       .text("General Information: ");
 
+
+    const dateSection = Html().create("Section")
     const dateEntryLabel = Html()
       .create("label")
       .text("Date");
@@ -407,15 +415,15 @@ class Components {
       .addAttribute("type", "text")
       .addAttribute("name", "Date");
     const speechButton11 = Html()
-      .create("button")
+      .create("input")
       .addClass("speechButton")
-      .text("push to speak")
+      .addAttribute("type", "button")
       .click(event => {
         event.preventDefault();
 
         testSpeech(".dateInput");
       })
-
+    const timeSection = Html().create("Section")
     const timeOfDayEntryLabel = Html()
       .create("label")
       .text("Time of Day");
@@ -429,15 +437,16 @@ class Components {
       .addAttribute("name", "Time of Day");
 
     const speechButton10 = Html()
-      .create("button")
+      .create("input")
       .addClass("speechButton")
-      .text("push to speak")
+      .addAttribute("type", "button")
       .click(event => {
         event.preventDefault();
 
         testSpeech(".timeInput");
       })
 
+    const sexSection = Html().create("Section")
     const sexEntryLabel = Html()
       .create("label")
       .text("Sex");
@@ -451,15 +460,16 @@ class Components {
       .addAttribute("name", "Sex");
 
     const speechButton9 = Html()
-      .create("button")
+      .create("input")
       .addClass("speechButton")
-      .text("push to speak")
+      .addAttribute("type", "button")
       .click(event => {
         event.preventDefault();
 
         testSpeech(".sexInput");
       })
 
+    const ageSection = Html().create("Section")
     const ageEntryLabel = Html()
       .create("label")
       .text("Age");
@@ -472,9 +482,9 @@ class Components {
       .addAttribute("type", "text")
       .addAttribute("name", "Age");
     const speechButton8 = Html()
-      .create("button")
+      .create("input")
       .addClass("speechButton")
-      .text("push to speak")
+      .addAttribute("type", "button")
       .click(event => {
         event.preventDefault();
 
@@ -482,18 +492,26 @@ class Components {
       })
     generalSectionBlock.addChild(generalSectionTitle);
     generalSectionBlock.addChild(dateEntryLabel);
-    generalSectionBlock.addChild(dateInputField);
-    generalSectionBlock.addChild(speechButton11)
+    dateSection.addChild(dateInputField);
+    dateSection.addChild(speechButton11)
+    generalSectionBlock.addChild(dateSection);
+
     generalSectionBlock.addChild(timeOfDayEntryLabel);
-    generalSectionBlock.addChild(timeOFDayInputField);
-    generalSectionBlock.addChild(speechButton10)
-    generalSectionBlock.addChild(Html().create("br"))
+    timeSection.addChild(timeOFDayInputField);
+    timeSection.addChild(speechButton10)
+    generalSectionBlock.addChild(timeSection);
+
+    // generalSectionBlock.addChild(Html().create("br"))
     generalSectionBlock.addChild(sexEntryLabel);
-    generalSectionBlock.addChild(sexInputField);
-    generalSectionBlock.addChild(speechButton9)
+    sexSection.addChild(sexInputField);
+    sexSection.addChild(speechButton9)
+    generalSectionBlock.addChild(sexSection);
+
     generalSectionBlock.addChild(ageEntryLabel);
-    generalSectionBlock.addChild(ageInputField);
-    generalSectionBlock.addChild(speechButton8)
+    ageSection.addChild(ageInputField);
+    ageSection.addChild(speechButton8)
+    generalSectionBlock.addChild(ageSection);
+
     traumaFormContentBlock.addChild(generalSectionBlock);
     // this is the vitals section, can refactor into method later
     const vitalsSectionBlock = Html()
@@ -504,6 +522,7 @@ class Components {
       .create("h3")
       .text("Vitals Signs: ");
 
+    const bpSection = Html().create("Section")
     const bpEntryLabel = Html()
       .create("label")
       .text("B/P");
@@ -516,15 +535,16 @@ class Components {
       .addAttribute("type", "text")
       .addAttribute("name", "B/P");
     const speechButton7 = Html()
-      .create("button")
+      .create("input")
       .addClass("speechButton")
-      .text("push to speak")
+      .addAttribute("type", "button")
       .click(event => {
         event.preventDefault();
 
         testSpeech(".bpInput");
       })
 
+    const hrSection = Html().create("Section")
     const hrEntryLabel = Html()
       .create("label")
       .text("H/R:");
@@ -537,14 +557,15 @@ class Components {
       .addAttribute("type", "text")
       .addAttribute("name", "H/R");
     const speechButton6 = Html()
-      .create("button")
+      .create("input")
       .addClass("speechButton")
-      .text("push to speak")
+      .addAttribute("type", "button")
       .click(event => {
         event.preventDefault();
 
         testSpeech(".hrInput");
       })
+    const spo2Section = Html().create("Section")
     const spo2EntryLabel = Html()
       .create("label")
       .text("SPO2: ");
@@ -558,14 +579,15 @@ class Components {
       .addAttribute("name", "Spo2");
 
     const speechButton5 = Html()
-      .create("button")
+      .create("input")
       .addClass("speechButton")
-      .text("push to speak")
+      .addAttribute("type", "button")
       .click(event => {
         event.preventDefault();
 
         testSpeech(".spo2Input");
       })
+    const rSection = Html().create("Section")
     const rEntryLabel = Html()
       .create("label")
       .text("R: ");
@@ -579,15 +601,16 @@ class Components {
       .addAttribute("name", "R");
 
     const speechButton4 = Html()
-      .create("button")
+      .create("input")
       .addClass("speechButton")
-      .text("push to speak")
+      .addAttribute("type", "button")
       .click(event => {
         event.preventDefault();
 
         testSpeech(".rInput");
       })
 
+    const gcsSection = Html().create("Section")
     const gcsEntryLabel = Html()
       .create("label")
       .text("GCS: ");
@@ -601,15 +624,16 @@ class Components {
       .addAttribute("name", "GCS");
 
     const speechButton3 = Html()
-      .create("button")
+      .create("input")
       .addClass("speechButton")
-      .text("push to speak")
+      .addAttribute("type", "button")
       .click(event => {
         event.preventDefault();
 
         testSpeech(".gcsInput");
       })
 
+    const gluSection = Html().create("Section")
     const gluEntryLabel = Html()
       .create("label")
       .text("GLU: ");
@@ -623,22 +647,24 @@ class Components {
       .addAttribute("name", "GLU");
 
     const speechButton2 = Html()
-      .create("button")
+      .create("input")
       .addClass("speechButton")
-      .text("push to speak")
+      .addAttribute("type", "button")
       .click(event => {
         event.preventDefault();
 
         testSpeech(".gluInput");
       })
 
-    const narrativeSection = Html().create("Section")
+    const narrativeSection = Html().create("Section").addClass("vitals__section")
 
     const narrativeEntryLabel = Html()
       .create("label")
       .text("Narrative: ");
+    const narrativeButtonSection = Html().create("Section")
     const narrativeInputField = Html()
       .create("input")
+      .addClass("vitals__section-field")
       .addClass("vitals__section-fieldNar")
       .addClass("Required-Field")
       .addAttribute("id", "narrativeField")
@@ -647,15 +673,17 @@ class Components {
       .addAttribute("value", "");
 
     const speechButton = Html()
-      .create("button")
+      .create("input")
       .addClass("speechButton")
-      .text("push to speak")
+      .addAttribute("type", "button")
       .click(event => {
         event.preventDefault();
 
         testSpeech(".vitals__section-fieldNar");
+        // <img src="./image/microphone.png"></img>
       }
       );
+
 
     const traumaSubmitButton = Html()
       .create("button")
@@ -670,30 +698,43 @@ class Components {
 
     vitalsSectionBlock.addChild(vitalsSectionTitle);
     vitalsSectionBlock.addChild(hrEntryLabel);
-    vitalsSectionBlock.addChild(hrInputField);
-    vitalsSectionBlock.addChild(speechButton6)
+    hrSection.addChild(hrInputField);
+    hrSection.addChild(speechButton6)
+    vitalsSectionBlock.addChild(hrSection);
+
     vitalsSectionBlock.addChild(bpEntryLabel);
-    vitalsSectionBlock.addChild(bpInputField);
-    vitalsSectionBlock.addChild(speechButton7)
+    bpSection.addChild(bpInputField);
+    bpSection.addChild(speechButton7)
+    vitalsSectionBlock.addChild(bpSection);
+
     vitalsSectionBlock.addChild(spo2EntryLabel);
-    vitalsSectionBlock.addChild(spo2InputField);
-    vitalsSectionBlock.addChild(speechButton5)
+    spo2Section.addChild(spo2InputField);
+    spo2Section.addChild(speechButton5)
+    vitalsSectionBlock.addChild(spo2Section);
+
     vitalsSectionBlock.addChild(rEntryLabel);
-    vitalsSectionBlock.addChild(rInputField);
-    vitalsSectionBlock.addChild(speechButton4)
+    rSection.addChild(rInputField);
+    rSection.addChild(speechButton4)
+    vitalsSectionBlock.addChild(rSection);
+
     vitalsSectionBlock.addChild(gcsEntryLabel);
-    vitalsSectionBlock.addChild(gcsInputField);
-    vitalsSectionBlock.addChild(speechButton3)
+    gcsSection.addChild(gcsInputField);
+    gcsSection.addChild(speechButton3)
+    vitalsSectionBlock.addChild(gcsSection);
+
     vitalsSectionBlock.addChild(gluEntryLabel);
-    vitalsSectionBlock.addChild(gluInputField);
-    vitalsSectionBlock.addChild(speechButton2)
+    gluSection.addChild(gluInputField);
+    gluSection.addChild(speechButton2)
+    vitalsSectionBlock.addChild(gluSection);
 
     traumaFormContentBlock.addChild(vitalsSectionBlock);
     narrativeSection.addChild(narrativeEntryLabel);
-    narrativeSection.addChild(narrativeInputField);
-    narrativeSection.addChild(speechButton);
+    narrativeButtonSection.addChild(narrativeInputField);
+    narrativeButtonSection.addChild(speechButton);
+    narrativeSection.addChild(narrativeButtonSection);
+
+    narrativeSection.addChild(traumaSubmitButton);
     traumaFormContentBlock.addChild(narrativeSection)
-    traumaFormContentBlock.addChild(traumaSubmitButton);
 
     return traumaFormContentBlock;
   }
