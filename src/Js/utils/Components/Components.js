@@ -667,7 +667,7 @@ class Components {
 
     const narrativeButtonSection = Html().create("Section")
     const narrativeInputField = Html()
-      .create("input")
+      .create("textarea")
       .addClass("narrative__section-field")
       .addClass("vitals__section-fieldNar")
       .addClass("Required-Field")
