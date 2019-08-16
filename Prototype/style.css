@@ -32,15 +32,17 @@ input {
 }
 .speechButton{
   background-image: url(./image/microphone.png); /* 16px x 16px */
-    background-color: transparent; /* make the button transparent */
+    /* background-color: transparent;  */
     background-repeat: no-repeat;  /* make the background image appear only once */
     background-position: 0px 0px;  /* equivalent to 'top left' */
     background-size: 100% 100%;
     border: none;           /* assuming we don't want any borders */
     cursor: pointer;        /* make the cursor like hovering over an <a> element */
-    height: 16px;           /* make this the size of your image */
-    padding-left: 16px;     /* make text start to the right of the image */
+    height: 26px;           /* make this the size of your image */
+    margin-left: 10px;     /* make text start to the right of the image */
     vertical-align: middle; /* align the text vertically centered */
+    border-radius: 50%;
+    border: 1px solid darkslategray;
 }
 
 li {
@@ -74,6 +76,7 @@ footer {
   size:1.5rem;
   margin: 0.5rem;
   color: rebeccapurple;
+  
 }
 
 .back__options__link:hover {
@@ -135,21 +138,24 @@ footer {
 }
 
 .MVC__block {
-
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-items: center;
+  align-items: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
 }
+.MVC__block input{margin-top: 5px;}
 
 .GeneralInfo__section {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-items: center;
+  align-items: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
 
+}
+.GeneralInfo__section input{
+  margin-top: 5px;
 }
 .receiving__report-list {
   display: flex;
@@ -232,6 +238,7 @@ footer {
   padding-bottom: 100px;
 }
 
+
 .container button {
   height: 45px;
   width: 100px;
@@ -242,12 +249,16 @@ footer {
 
 .vitals__section {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.vitals__section input{
+  margin-top: 5px;
 }
 .header__trauma {
-  text-align: center;
+  text-align: initial;
 }
 .header__medical {
   text-align: center;

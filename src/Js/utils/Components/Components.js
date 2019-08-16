@@ -104,6 +104,10 @@ class Components {
         event.preventDefault();
         this.renderPageOptions();
       });
+    const traumaFormTitle = Html()
+      .create("h2")
+      .addClass("header__trauma")
+      .text("TRAUMA");
     const mvcBlock = Html().create("section").addClass("MVC__block");
     const mvcContentBlock = Html()
       .create("section")
@@ -205,7 +209,6 @@ class Components {
       .addAttribute("type", "checkbox")
       .addAttribute("name", "immobilized");
 
-    mvcContentBlock.addChild(backToOptionsLink);
     mvcBlock.addChild(seatPositionLabel);
     seatSection.addChild(seatPositionInput);
     seatSection.addChild(speechButton13)
@@ -233,7 +236,8 @@ class Components {
     immobilizationContentDiv.addChild(immobilizedInputCheckBox);
     immobilizationContentDiv.addChild(immobilizedInputcheckBoxText);
 
-    mvcContentBlock;
+    contentBlock.addChild(backToOptionsLink);
+    contentBlock.addChild(traumaFormTitle);
     contentBlock.addChild(mvcContentBlock);
 
     const traumaFormContent = this.renderTraumaFormContent();
@@ -384,10 +388,7 @@ class Components {
     const traumaFormContentBlock = Html()
       .create("div")
       .addClass("traumaForm");
-    const traumaFormTitle = Html()
-      .create("h2")
-      .addClass("header__trauma")
-      .text("TRAUMA");
+
     const traumaFormContainer = Html()
       .create("div")
       .addClass("container");
@@ -413,7 +414,7 @@ class Components {
       .addClass("Required-Field")
       .addAttribute("id", "dateField")
       .addAttribute("type", "text")
-      .addAttribute("name", "Date");
+      .addAttribute("name", "Date:");
     const speechButton11 = Html()
       .create("input")
       .addClass("speechButton")
@@ -434,7 +435,7 @@ class Components {
       .addClass("Required-Field")
       .addAttribute("id", "timeOfDayField")
       .addAttribute("type", "text")
-      .addAttribute("name", "Time of Day");
+      .addAttribute("name", "Time of Day:");
 
     const speechButton10 = Html()
       .create("input")
@@ -457,7 +458,7 @@ class Components {
       .addClass("Required-Field")
       .addAttribute("id", "sexField")
       .addAttribute("type", "text")
-      .addAttribute("name", "Sex");
+      .addAttribute("name", "Sex:");
 
     const speechButton9 = Html()
       .create("input")
@@ -480,7 +481,7 @@ class Components {
       .addClass("Required-Field")
       .addAttribute("id", "ageField")
       .addAttribute("type", "text")
-      .addAttribute("name", "Age");
+      .addAttribute("name", "Age:");
     const speechButton8 = Html()
       .create("input")
       .addClass("speechButton")
@@ -533,7 +534,7 @@ class Components {
       .addClass("Required-Field")
       .addAttribute("id", "bpField")
       .addAttribute("type", "text")
-      .addAttribute("name", "B/P");
+      .addAttribute("name", "B/P:");
     const speechButton7 = Html()
       .create("input")
       .addClass("speechButton")
@@ -693,8 +694,8 @@ class Components {
         this.inputChecker(event);
       });
 
+    // traumaFormContentBlock.addChild(traumaFormTitle);
     traumaFormContentBlock.addChild(traumaFormContainer);
-    traumaFormContentBlock.addChild(traumaFormTitle);
 
     vitalsSectionBlock.addChild(vitalsSectionTitle);
     vitalsSectionBlock.addChild(hrEntryLabel);
