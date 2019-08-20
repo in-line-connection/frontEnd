@@ -227,8 +227,26 @@ footer {
   justify-content: center;
   align-items: center;
   border-radius: 9px;
-  
+  margin-bottom: 28%;
+  margin-right: -7%;
 }
+@media only screen and (max-width: 768px) {
+  .Login{
+    background-color: #fbf2f2e7;
+  padding: 0.8rem;
+  width: 18rem;
+  border: 2px solid blue;
+  box-shadow: 5px 5px 5px grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9px;
+  margin-bottom: 55%;
+  }
+}
+
+
 .login__form {
   display: flex;
   flex-direction: column;
